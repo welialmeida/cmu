@@ -1,6 +1,6 @@
 package pt.ulisboa.tecnico.cmu.response;
 
-public class LogInResponse implements Response {
+public class LogInResponse extends Response {
 
     private static final long serialVersionUID = 734457624276534179L;
     private String message;

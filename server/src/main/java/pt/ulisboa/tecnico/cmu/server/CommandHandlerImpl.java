@@ -14,9 +14,9 @@ import java.util.TreeMap;
 
 public class CommandHandlerImpl implements CommandHandler {
 
-    //TODO session Ids are SecureRandom Doubles
-    //TODO nonces are SecureRandom Doubles
-    private TreeMap<Double, Double> nonceLists; // nonceList of used nonces for each unique session id
+    //TODO session Ids are SecureRandom Doubles - login
+    //TODO nonces are SecureRandom Doubles - nonce
+    private TreeMap<Double, Double> nonceListsReceived; // nonceList of used nonces for each unique session id
     private TreeMap<Double, PublicKey> idMap; // unique session ids for login
     private TreeMap<String, String> signUpMap; // unique name as key, unique code as value
     private PrivateKey privKey;
@@ -24,7 +24,7 @@ public class CommandHandlerImpl implements CommandHandler {
     private String keyFilename = "server";
 
     public CommandHandlerImpl() throws GeneralSecurityException, IOException {
-        nonceLists = new TreeMap<>();
+        nonceListsReceived = new TreeMap<>();
         idMap = new TreeMap<>();
         signUpMap = new TreeMap<>();
         privKey = RSAKeyHandling.getPrivKey(keyFilename);
@@ -36,12 +36,18 @@ public class CommandHandlerImpl implements CommandHandler {
         return null;
     }
 
-    //TODO
+    //TODO - nonce
+    private void verifyNonce(PublicKey pubK, double nonce) {
+        //verify with nonceLists
+
+    }
+
+    //TODO - persistence
     private void getPersistentItems() {
 
     }
 
-    //TODO
+    //TODO - persistence
     private void addUsernameAndTicketCodeToPersistentStorage(String Username, String busTicketCode) {
         // format: user + "|" + busTicketCode
 
@@ -61,16 +67,17 @@ public class CommandHandlerImpl implements CommandHandler {
         return;
     }
 
-    //TODO
-    private void loginHandle(String Username, String busTicketCode) {
+    //TODO - login
+    private double loginHandle(String Username, String busTicketCode) {
         // busTicketCode is password
-        
+        // returns sessionId
+        return 0.0;
     }
 
     @Override
     public Response handle(Command command) {
         // main method
-        String arguments[] = command.getArguments();
+        TreeMap argsMap = command.getArguments();
         System.out.println("Received: " + command.getMessage());
         switch (command.getId()) {
             case "DownloadQuizQuestionsCommand":
@@ -80,17 +87,17 @@ public class CommandHandlerImpl implements CommandHandler {
             case "ListTourLocationsCommand":
                 return new ListTourResponse();
             case "LoginCommand":
-                String Username = arguments[0];
-                String busTicketCode = arguments[1];
-                loginHandle(Username, busTicketCode);
-                return new LogInResponse();
+                String Username = (String) argsMap.get("Username");
+                String busTicketCode = (String) argsMap.get("busTicketCode");
+                double sessionId = loginHandle(Username, busTicketCode);
+                return new LogInResponse(sessionId);
             case "PostQuizAnswersForMonumentCommand":
                 return new PostQuizAnswersForOneMonumentResponse();
             case "ReadQuizResultsCommand":
                 return new ReadQuizResultsResponse();
             case "SignUpCommand":
-                Username = arguments[0];
-                busTicketCode = arguments[1];
+                Username = (String) argsMap.get("Username");
+                busTicketCode = (String) argsMap.get("busTicketCode");
                 try {
                     signUpHandle(Username, busTicketCode);
                 } catch (SecException e) {
