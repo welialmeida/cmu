@@ -17,20 +17,22 @@
       <file leaf-file-name="Response.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/pt/ulisboa/tecnico/cmu/response/Response.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="16" column="22" lean-forward="false" selection-start-line="16" selection-start-column="22" selection-end-line="16" selection-end-column="22" />
+            <state relative-caret-position="212">
+              <caret line="59" column="29" lean-forward="false" selection-start-line="59" selection-start-column="29" selection-end-line="59" selection-end-column="29" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#721#722#0" expanded="true" />
-                <element signature="e#752#753#0" expanded="true" />
-                <element signature="e#789#790#0" expanded="true" />
-                <element signature="e#819#820#0" expanded="true" />
-                <element signature="e#1014#1015#0" expanded="true" />
-                <element signature="e#1041#1042#0" expanded="true" />
-                <element signature="e#1090#1091#0" expanded="true" />
-                <element signature="e#1133#1134#0" expanded="true" />
-                <element signature="e#1179#1180#0" expanded="true" />
-                <element signature="e#1212#1213#0" expanded="true" />
+                <element signature="e#1102#1103#0" expanded="true" />
+                <element signature="e#1139#1140#0" expanded="true" />
+                <element signature="e#1172#1173#0" expanded="true" />
+                <element signature="e#1203#1204#0" expanded="true" />
+                <element signature="e#1240#1241#0" expanded="true" />
+                <element signature="e#1270#1271#0" expanded="true" />
+                <element signature="e#1400#1401#0" expanded="true" />
+                <element signature="e#1437#1438#0" expanded="true" />
+                <element signature="e#1486#1487#0" expanded="true" />
+                <element signature="e#1529#1530#0" expanded="true" />
+                <element signature="e#1575#1576#0" expanded="true" />
+                <element signature="e#1608#1609#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -39,17 +41,19 @@
       <file leaf-file-name="Command.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/pt/ulisboa/tecnico/cmu/command/Command.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="25" column="4" lean-forward="false" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="22" />
+            <state relative-caret-position="229">
+              <caret line="35" column="28" lean-forward="false" selection-start-line="35" selection-start-column="28" selection-end-line="35" selection-end-column="28" />
               <folding>
-                <element signature="e#1011#1012#0" expanded="true" />
-                <element signature="e#1041#1042#0" expanded="true" />
-                <element signature="e#1165#1166#0" expanded="true" />
-                <element signature="e#1192#1193#0" expanded="true" />
-                <element signature="e#1241#1242#0" expanded="true" />
-                <element signature="e#1284#1285#0" expanded="true" />
-                <element signature="e#1330#1331#0" expanded="true" />
-                <element signature="e#1363#1364#0" expanded="true" />
+                <element signature="e#1316#1317#0" expanded="true" />
+                <element signature="e#1353#1354#0" expanded="true" />
+                <element signature="e#1461#1462#0" expanded="true" />
+                <element signature="e#1491#1492#0" expanded="true" />
+                <element signature="e#1550#1551#0" expanded="true" />
+                <element signature="e#1587#1588#0" expanded="true" />
+                <element signature="e#1636#1637#0" expanded="true" />
+                <element signature="e#1679#1680#0" expanded="true" />
+                <element signature="e#1725#1726#0" expanded="true" />
+                <element signature="e#1758#1759#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -58,8 +62,8 @@
       <file leaf-file-name="CommandHandlerImpl.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/pt/ulisboa/tecnico/cmu/server/CommandHandlerImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="433">
-              <caret line="156" column="17" lean-forward="false" selection-start-line="156" selection-start-column="17" selection-end-line="156" selection-end-column="17" />
+            <state relative-caret-position="1343">
+              <caret line="159" column="39" lean-forward="false" selection-start-line="159" selection-start-column="39" selection-end-line="159" selection-end-column="39" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -151,6 +155,7 @@
       <find>hc</find>
       <find>HelloResponse</find>
       <find>message</find>
+      <find>getsess</find>
     </findStrings>
     <replaceStrings>
       <replace>command</replace>
@@ -197,11 +202,11 @@
         <option value="$PROJECT_DIR$/src/main/java/pt/ulisboa/tecnico/cmu/response/SignUpResponse.java" />
         <option value="$PROJECT_DIR$/src/main/java/pt/ulisboa/tecnico/cmu/server/InvalidLoginException.java" />
         <option value="$PROJECT_DIR$/src/main/java/pt/ulisboa/tecnico/cmu/response/LogInResponse.java" />
-        <option value="$PROJECT_DIR$/src/main/java/pt/ulisboa/tecnico/cmu/command/Command.java" />
-        <option value="$PROJECT_DIR$/src/main/java/pt/ulisboa/tecnico/cmu/response/Response.java" />
         <option value="$PROJECT_DIR$/src/test/java/pt/ulisboa/tecnico/TestUnitServer.java" />
         <option value="$PROJECT_DIR$/src/main/java/pt/ulisboa/tecnico/cmu/command/LogOutCommand.java" />
         <option value="$PROJECT_DIR$/src/main/java/pt/ulisboa/tecnico/cmu/response/LogOutResponse.java" />
+        <option value="$PROJECT_DIR$/src/main/java/pt/ulisboa/tecnico/cmu/command/Command.java" />
+        <option value="$PROJECT_DIR$/src/main/java/pt/ulisboa/tecnico/cmu/response/Response.java" />
         <option value="$PROJECT_DIR$/src/main/java/pt/ulisboa/tecnico/cmu/server/CommandHandlerImpl.java" />
       </list>
     </option>
@@ -468,12 +473,12 @@
       <option name="presentableId" value="Default" />
       <updated>1522627478691</updated>
       <workItem from="1522627488880" duration="4750000" />
-      <workItem from="1522663773812" duration="36716000" />
+      <workItem from="1522663773812" duration="37428000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="41466000" />
+    <option name="totallyTimeSpent" value="42178000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="309" y="38" width="1372" height="746" extended-state="6" />
@@ -783,43 +788,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pt/ulisboa/tecnico/cmu/response/Response.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="16" column="22" lean-forward="false" selection-start-line="16" selection-start-column="22" selection-end-line="16" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#721#722#0" expanded="true" />
-            <element signature="e#752#753#0" expanded="true" />
-            <element signature="e#789#790#0" expanded="true" />
-            <element signature="e#819#820#0" expanded="true" />
-            <element signature="e#1014#1015#0" expanded="true" />
-            <element signature="e#1041#1042#0" expanded="true" />
-            <element signature="e#1090#1091#0" expanded="true" />
-            <element signature="e#1133#1134#0" expanded="true" />
-            <element signature="e#1179#1180#0" expanded="true" />
-            <element signature="e#1212#1213#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pt/ulisboa/tecnico/cmu/command/Command.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="25" column="4" lean-forward="false" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="22" />
-          <folding>
-            <element signature="e#1011#1012#0" expanded="true" />
-            <element signature="e#1041#1042#0" expanded="true" />
-            <element signature="e#1165#1166#0" expanded="true" />
-            <element signature="e#1192#1193#0" expanded="true" />
-            <element signature="e#1241#1242#0" expanded="true" />
-            <element signature="e#1284#1285#0" expanded="true" />
-            <element signature="e#1330#1331#0" expanded="true" />
-            <element signature="e#1363#1364#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/pt/ulisboa/tecnico/cmu/response/HelloResponse.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -876,10 +844,51 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/pt/ulisboa/tecnico/cmu/response/Response.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="212">
+          <caret line="59" column="29" lean-forward="false" selection-start-line="59" selection-start-column="29" selection-end-line="59" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1102#1103#0" expanded="true" />
+            <element signature="e#1139#1140#0" expanded="true" />
+            <element signature="e#1172#1173#0" expanded="true" />
+            <element signature="e#1203#1204#0" expanded="true" />
+            <element signature="e#1240#1241#0" expanded="true" />
+            <element signature="e#1270#1271#0" expanded="true" />
+            <element signature="e#1400#1401#0" expanded="true" />
+            <element signature="e#1437#1438#0" expanded="true" />
+            <element signature="e#1486#1487#0" expanded="true" />
+            <element signature="e#1529#1530#0" expanded="true" />
+            <element signature="e#1575#1576#0" expanded="true" />
+            <element signature="e#1608#1609#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/pt/ulisboa/tecnico/cmu/command/Command.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="229">
+          <caret line="35" column="28" lean-forward="false" selection-start-line="35" selection-start-column="28" selection-end-line="35" selection-end-column="28" />
+          <folding>
+            <element signature="e#1316#1317#0" expanded="true" />
+            <element signature="e#1353#1354#0" expanded="true" />
+            <element signature="e#1461#1462#0" expanded="true" />
+            <element signature="e#1491#1492#0" expanded="true" />
+            <element signature="e#1550#1551#0" expanded="true" />
+            <element signature="e#1587#1588#0" expanded="true" />
+            <element signature="e#1636#1637#0" expanded="true" />
+            <element signature="e#1679#1680#0" expanded="true" />
+            <element signature="e#1725#1726#0" expanded="true" />
+            <element signature="e#1758#1759#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/pt/ulisboa/tecnico/cmu/server/CommandHandlerImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="433">
-          <caret line="156" column="17" lean-forward="false" selection-start-line="156" selection-start-column="17" selection-end-line="156" selection-end-column="17" />
+        <state relative-caret-position="1343">
+          <caret line="159" column="39" lean-forward="false" selection-start-line="159" selection-start-column="39" selection-end-line="159" selection-end-column="39" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

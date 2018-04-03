@@ -15,6 +15,7 @@ public abstract class Command implements Serializable {
     private List<Object> argsList;
     private TreeMap<String, Object> argsMap;
     private byte[] signature;
+    private double sessionId;
 
     public abstract Response handle(CommandHandler ch);
 
@@ -30,8 +31,24 @@ public abstract class Command implements Serializable {
         genNonce(pubK);
     }
 
+    public Command(PublicKey pubK, byte[] signature, double sessionId) {
+        argsList = new ArrayList<>();
+        argsMap = new TreeMap<>();
+        genNonce(pubK);
+        setSessionId(sessionId);
+    }
+
     public Command() {
 
+    }
+
+    private void setSessionId(double sessionId) {
+        this.sessionId = sessionId;
+        addToArgs("sessionID", sessionId);
+    }
+
+    private double getSessionId() {
+        return this.sessionId;
     }
 
     //TODO - nonce
@@ -44,13 +61,8 @@ public abstract class Command implements Serializable {
     }
 
     //TODO - signature
-    private void genSignature() {
-
-    }
-
-    //TODO - signature
     public byte[] getSignature() {
-        return null;
+        return this.signature;
     }
 
     public Object getArgument(String argName) {

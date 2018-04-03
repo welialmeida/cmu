@@ -12,6 +12,7 @@ public abstract class Response implements Serializable {
     private List<Object> argsList;
     private TreeMap<String, Object> argsMap;
     private byte[] signature;
+    private double sessionId;
 
     //TODO - nonce
     //TODO - signature
@@ -21,8 +22,24 @@ public abstract class Response implements Serializable {
         genNonce(pubK);
     }
 
+    public Response(PublicKey pubK, byte[] signature, double sessionId) {
+        argsList = new ArrayList<>();
+        argsMap = new TreeMap<>();
+        genNonce(pubK);
+        setSessionId(sessionId);
+    }
+
     public Response() {
 
+    }
+
+    private void setSessionId(double sessionId) {
+        this.sessionId = sessionId;
+        addToArgs("sessionID", sessionId);
+    }
+
+    private double getSessionId() {
+        return this.sessionId;
     }
 
     public List getArgsList() {
@@ -39,13 +56,8 @@ public abstract class Response implements Serializable {
     }
 
     //TODO - signature
-    private void genSignature() {
-
-    }
-
-    //TODO - signature
     public byte[] getSignature() {
-        return null;
+        return this.signature;
     }
 
     public Object getArgument(String argName) {

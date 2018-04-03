@@ -65,7 +65,7 @@ public class CommandHandlerImpl implements CommandHandler {
     private void signUpHandle(String Username, String busTicketCode) throws SecException {
         if (Username == null || busTicketCode == null)
             throw new SecException("null username of busTicketCode");
-        if(signUpMap.containsKey(Username)) {
+        if (signUpMap.containsKey(Username)) {
             throw new SecException("username already exists");
         } else if (signUpMap.containsValue(busTicketCode)) {
             throw new SecException("ticket code already exists");
@@ -77,7 +77,7 @@ public class CommandHandlerImpl implements CommandHandler {
 
     private double genSessionId() throws SessionIdException {
         double newSeed = random.nextDouble();
-        if(idMap.containsKey(newSeed)) {
+        if (idMap.containsKey(newSeed)) {
             throw new SessionIdException("sessionId had already been assigned on session Id creation");
         }
         return newSeed;
@@ -87,9 +87,9 @@ public class CommandHandlerImpl implements CommandHandler {
     private double loginHandle(String Username, String busTicketCode) throws InvalidLoginException, SessionIdException {
         // busTicketCode is password
         double sessionId;
-        if(signUpMap.containsKey(Username) && signUpMap.containsValue(busTicketCode)) {
+        if (signUpMap.containsKey(Username) && signUpMap.containsValue(busTicketCode)) {
             sessionId = genSessionId();
-            if(signInMap.containsKey(Username)) {
+            if (signInMap.containsKey(Username)) {
                 throw new InvalidLoginException("Username already logged in");
             } else {
                 signInMap.put(Username, sessionId);
@@ -101,7 +101,7 @@ public class CommandHandlerImpl implements CommandHandler {
     }
 
     private void logOutHandle(String Username) throws InvalidLoginException {
-        if(signInMap.containsKey(Username)) {
+        if (signInMap.containsKey(Username)) {
             signInMap.remove(Username);
         } else {
             throw new InvalidLoginException("Impossible to LogOut of session");
