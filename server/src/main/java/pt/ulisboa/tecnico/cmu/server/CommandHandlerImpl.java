@@ -22,6 +22,7 @@ public class CommandHandlerImpl implements CommandHandler {
     //TODO nonces are SecureRandom Doubles - nonce
     private TreeMap<Double, Double> nonceListsReceived; // nonceList of used nonces for each unique session id
     private TreeMap<Double, PublicKey> idMap; // unique session ids for login
+    private TreeMap<String, Double> signInMap; // unique name as key, uniqueId as value
     private TreeMap<String, String> signUpMap; // unique name as key, unique code as value
     private PrivateKey privKey;
     private PublicKey pubKey;
@@ -85,10 +86,25 @@ public class CommandHandlerImpl implements CommandHandler {
     //TODO - login
     private double loginHandle(String Username, String busTicketCode) throws InvalidLoginException, SessionIdException {
         // busTicketCode is password
+        double sessionId;
         if(signUpMap.containsKey(Username) && signUpMap.containsValue(busTicketCode)) {
-            return genSessionId();
+            sessionId = genSessionId();
+            if(signInMap.containsKey(Username)) {
+                throw new InvalidLoginException("Username already logged in");
+            } else {
+                signInMap.put(Username, sessionId);
+            }
+            return sessionId;
         } else {
             throw new InvalidLoginException("invalid Login, no username of ticket code found");
+        }
+    }
+
+    private void logOutHandle(String Username) throws InvalidLoginException {
+        if(signInMap.containsKey(Username)) {
+            signInMap.remove(Username);
+        } else {
+            throw new InvalidLoginException("Impossible to LogOut of session");
         }
     }
 
@@ -100,6 +116,10 @@ public class CommandHandlerImpl implements CommandHandler {
         TreeMap argsMap = command.getArguments();
         System.out.println("Received: " + command.getMessage());
         switch (command.getId()) {
+
+            case "HelloCommand":
+                return new HelloResponse();
+
             case "SignUpCommand":
                 String Username = (String) argsMap.get("Username");
                 String busTicketCode = (String) argsMap.get("busTicketCode");
@@ -114,7 +134,7 @@ public class CommandHandlerImpl implements CommandHandler {
             case "LoginCommand":
                 Username = (String) argsMap.get("Username");
                 busTicketCode = (String) argsMap.get("busTicketCode");
-                double sessionId = 0;
+                double sessionId;
                 try {
                     sessionId = loginHandle(Username, busTicketCode);
                     return new LogInResponse(sessionId);
@@ -126,14 +146,21 @@ public class CommandHandlerImpl implements CommandHandler {
                     return new ErrorResponse(e.getMessage());
                 }
 
-            case "DownloadQuizQuestionsCommand":
-                return new DownloadQuizQuestionsResponse();
-
-            case "HelloCommand":
-                return new HelloResponse();
+            case "LogOutCommand":
+                Username = (String) argsMap.get("Username");
+                try {
+                    logOutHandle(Username);
+                    return new LogOutResponse();
+                } catch (InvalidLoginException e) {
+                    e.printStackTrace();
+                    return new ErrorResponse(e.getMessage());
+                }
 
             case "ListTourLocationsCommand":
                 return new ListTourResponse();
+
+            case "DownloadQuizQuestionsCommand":
+                return new DownloadQuizQuestionsResponse();
 
             case "PostQuizAnswersForMonumentCommand":
                 return new PostQuizAnswersForOneMonumentResponse();
@@ -142,9 +169,7 @@ public class CommandHandlerImpl implements CommandHandler {
                 return new ReadQuizResultsResponse();
 
             default:
-                HelloResponse hr = new HelloResponse();
-                hr.setMessage("error setting response");
-                return hr;
+                return new ErrorResponse("nothing happened in server");
         }
     }
 }
