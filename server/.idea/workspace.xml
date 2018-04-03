@@ -41,8 +41,8 @@
       <file leaf-file-name="Command.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/pt/ulisboa/tecnico/cmu/command/Command.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="229">
-              <caret line="35" column="28" lean-forward="false" selection-start-line="35" selection-start-column="28" selection-end-line="35" selection-end-column="28" />
+            <state relative-caret-position="314">
+              <caret line="43" column="0" lean-forward="true" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
               <folding>
                 <element signature="e#1316#1317#0" expanded="true" />
                 <element signature="e#1353#1354#0" expanded="true" />
@@ -59,11 +59,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CommandHandlerImpl.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="CommandHandlerImpl.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/pt/ulisboa/tecnico/cmu/server/CommandHandlerImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1343">
-              <caret line="159" column="39" lean-forward="false" selection-start-line="159" selection-start-column="39" selection-end-line="159" selection-end-column="39" />
+            <state relative-caret-position="-408">
+              <caret line="92" column="40" lean-forward="false" selection-start-line="92" selection-start-column="40" selection-end-line="92" selection-end-column="40" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -76,6 +76,16 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="187">
               <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TestUnitServer.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/test/java/pt/ulisboa/tecnico/TestUnitServer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="969">
+              <caret line="57" column="5" lean-forward="true" selection-start-line="57" selection-start-column="5" selection-end-line="57" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -111,16 +121,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HelloResponse.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/pt/ulisboa/tecnico/cmu/response/HelloResponse.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="34" lean-forward="false" selection-start-line="2" selection-start-column="34" selection-end-line="2" selection-end-column="34" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="LogInResponse.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/pt/ulisboa/tecnico/cmu/response/LogInResponse.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -134,9 +134,12 @@
       <file leaf-file-name="InvalidLoginException.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/pt/ulisboa/tecnico/cmu/server/InvalidLoginException.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-              <folding />
+            <state relative-caret-position="68">
+              <caret line="4" column="11" lean-forward="false" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="11" />
+              <folding>
+                <element signature="e#145#146#0" expanded="true" />
+                <element signature="e#175#176#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -202,12 +205,12 @@
         <option value="$PROJECT_DIR$/src/main/java/pt/ulisboa/tecnico/cmu/response/SignUpResponse.java" />
         <option value="$PROJECT_DIR$/src/main/java/pt/ulisboa/tecnico/cmu/server/InvalidLoginException.java" />
         <option value="$PROJECT_DIR$/src/main/java/pt/ulisboa/tecnico/cmu/response/LogInResponse.java" />
-        <option value="$PROJECT_DIR$/src/test/java/pt/ulisboa/tecnico/TestUnitServer.java" />
         <option value="$PROJECT_DIR$/src/main/java/pt/ulisboa/tecnico/cmu/command/LogOutCommand.java" />
         <option value="$PROJECT_DIR$/src/main/java/pt/ulisboa/tecnico/cmu/response/LogOutResponse.java" />
         <option value="$PROJECT_DIR$/src/main/java/pt/ulisboa/tecnico/cmu/command/Command.java" />
         <option value="$PROJECT_DIR$/src/main/java/pt/ulisboa/tecnico/cmu/response/Response.java" />
         <option value="$PROJECT_DIR$/src/main/java/pt/ulisboa/tecnico/cmu/server/CommandHandlerImpl.java" />
+        <option value="$PROJECT_DIR$/src/test/java/pt/ulisboa/tecnico/TestUnitServer.java" />
       </list>
     </option>
   </component>
@@ -473,12 +476,12 @@
       <option name="presentableId" value="Default" />
       <updated>1522627478691</updated>
       <workItem from="1522627488880" duration="4750000" />
-      <workItem from="1522663773812" duration="37428000" />
+      <workItem from="1522663773812" duration="37562000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="42178000" />
+    <option name="totallyTimeSpent" value="42312000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="309" y="38" width="1372" height="746" extended-state="6" />
@@ -780,14 +783,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/pt/ulisboa/tecnico/TestUnitServer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-281">
-          <caret line="31" column="31" lean-forward="true" selection-start-line="31" selection-start-column="31" selection-end-line="31" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/pt/ulisboa/tecnico/cmu/response/HelloResponse.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -796,26 +791,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pt/ulisboa/tecnico/cmu/server/InvalidLoginException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/pt/ulisboa/tecnico/cmu/response/ErrorResponse.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="34" lean-forward="false" selection-start-line="2" selection-start-column="34" selection-end-line="2" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pt/ulisboa/tecnico/cmu/response/LogInResponse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -844,6 +823,25 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/pt/ulisboa/tecnico/cmu/response/LogInResponse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/pt/ulisboa/tecnico/cmu/server/InvalidLoginException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="11" lean-forward="false" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="11" />
+          <folding>
+            <element signature="e#145#146#0" expanded="true" />
+            <element signature="e#175#176#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/pt/ulisboa/tecnico/cmu/response/Response.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="212">
@@ -868,8 +866,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/pt/ulisboa/tecnico/cmu/command/Command.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="229">
-          <caret line="35" column="28" lean-forward="false" selection-start-line="35" selection-start-column="28" selection-end-line="35" selection-end-column="28" />
+        <state relative-caret-position="314">
+          <caret line="43" column="0" lean-forward="true" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
           <folding>
             <element signature="e#1316#1317#0" expanded="true" />
             <element signature="e#1353#1354#0" expanded="true" />
@@ -887,11 +885,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/pt/ulisboa/tecnico/cmu/server/CommandHandlerImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1343">
-          <caret line="159" column="39" lean-forward="false" selection-start-line="159" selection-start-column="39" selection-end-line="159" selection-end-column="39" />
+        <state relative-caret-position="-408">
+          <caret line="92" column="40" lean-forward="false" selection-start-line="92" selection-start-column="40" selection-end-line="92" selection-end-column="40" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/pt/ulisboa/tecnico/TestUnitServer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="969">
+          <caret line="57" column="5" lean-forward="true" selection-start-line="57" selection-start-column="5" selection-end-line="57" selection-end-column="5" />
+          <folding />
         </state>
       </provider>
     </entry>

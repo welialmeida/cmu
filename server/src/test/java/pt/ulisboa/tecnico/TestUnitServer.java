@@ -51,6 +51,12 @@ public class TestUnitServer {
 
     }
 
+    //TODO logOut test
+    @Test
+    public void duplicateLogOut() {
+
+    }
+
     //TODO signature
     @Test
     public void signatureLogin() {
