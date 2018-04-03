@@ -7,6 +7,7 @@ public class LogInResponse extends Response {
     private double uniqueId;
 
     public LogInResponse(double uniqueId) {
+        super();
         this.message = "LogIn success";
         this.uniqueId = uniqueId;
     }

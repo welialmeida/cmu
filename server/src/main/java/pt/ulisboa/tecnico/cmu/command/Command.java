@@ -2,6 +2,7 @@ package pt.ulisboa.tecnico.cmu.command;
 
 import java.io.Serializable;
 import java.security.PrivateKey;
+import java.security.PublicKey;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.TreeMap;
@@ -22,14 +23,19 @@ public abstract class Command implements Serializable {
     public abstract String getId();
 
     //TODO - nonce
-    public Command(Double uniqueSessionId) {
+    //TODO - signature
+    public Command(PublicKey pubK, byte[] signature) {
         argsList = new ArrayList<>();
         argsMap = new TreeMap<>();
-        genNonce(uniqueSessionId);
+        genNonce(pubK);
+    }
+
+    public Command() {
+
     }
 
     //TODO - nonce
-    private void genNonce(double uniqueSessionId) {
+    private void genNonce(PublicKey pubK) {
 
     }
 

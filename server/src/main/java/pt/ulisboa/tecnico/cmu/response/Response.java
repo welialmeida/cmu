@@ -1,7 +1,6 @@
 package pt.ulisboa.tecnico.cmu.response;
 
 import java.io.Serializable;
-import java.security.PrivateKey;
 import java.security.PublicKey;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,10 +14,19 @@ public abstract class Response implements Serializable {
     private byte[] signature;
 
     //TODO - nonce
-    public Response(Double uniqueSessionId, PrivateKey privKey, PublicKey pubK) {
+    //TODO - signature
+    public Response(PublicKey pubK, byte[] signature) {
         argsList = new ArrayList<>();
         argsMap = new TreeMap<>();
-        genNonce(uniqueSessionId);
+        genNonce(pubK);
+    }
+
+    public Response() {
+
+    }
+
+    public List getArgsList() {
+        return argsList;
     }
 
     public TreeMap getArguments() {
@@ -26,7 +34,7 @@ public abstract class Response implements Serializable {
     }
 
     //TODO - nonce
-    private void genNonce(double uniqueSessionId) {
+    private void genNonce(PublicKey pubK) {
 
     }
 

@@ -2,6 +2,7 @@ package pt.ulisboa.tecnico.cmu.server;
 
 import pt.ulisboa.tecnico.cmu.ServerAndClientGeneral.RSAKeyHandling;
 import pt.ulisboa.tecnico.cmu.ServerAndClientGeneral.SecException;
+import pt.ulisboa.tecnico.cmu.ServerAndClientGeneral.SessionIdException;
 import pt.ulisboa.tecnico.cmu.command.Command;
 import pt.ulisboa.tecnico.cmu.command.CommandHandler;
 import pt.ulisboa.tecnico.cmu.response.*;
@@ -10,6 +11,9 @@ import java.io.IOException;
 import java.security.GeneralSecurityException;
 import java.security.PrivateKey;
 import java.security.PublicKey;
+import java.security.SecureRandom;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.TreeMap;
 
 public class CommandHandlerImpl implements CommandHandler {
@@ -22,6 +26,8 @@ public class CommandHandlerImpl implements CommandHandler {
     private PrivateKey privKey;
     private PublicKey pubKey;
     private String keyFilename = "server";
+    private SecureRandom random;
+    private String secureRandAlgorithm = "SHA1PRNG";
 
     public CommandHandlerImpl() throws GeneralSecurityException, IOException {
         nonceListsReceived = new TreeMap<>();
@@ -30,6 +36,7 @@ public class CommandHandlerImpl implements CommandHandler {
         privKey = RSAKeyHandling.getPrivKey(keyFilename);
         pubKey = RSAKeyHandling.getPuvKey(keyFilename);
         this.getPersistentItems();
+        random = SecureRandom.getInstance(secureRandAlgorithm);
     }
 
     private String generateSessionId() {
@@ -44,6 +51,7 @@ public class CommandHandlerImpl implements CommandHandler {
 
     //TODO - persistence
     private void getPersistentItems() {
+        // get Persistent Items into signUpMap
 
     }
 
@@ -64,47 +72,75 @@ public class CommandHandlerImpl implements CommandHandler {
             signUpMap.put(Username, busTicketCode);
             addUsernameAndTicketCodeToPersistentStorage(Username, busTicketCode);
         }
-        return;
+    }
+
+    private double genSessionId() throws SessionIdException {
+        double newSeed = random.nextDouble();
+        if(idMap.containsKey(newSeed)) {
+            throw new SessionIdException("sessionId had already been assigned on session Id creation");
+        }
+        return newSeed;
     }
 
     //TODO - login
-    private double loginHandle(String Username, String busTicketCode) {
+    private double loginHandle(String Username, String busTicketCode) throws InvalidLoginException, SessionIdException {
         // busTicketCode is password
-        // returns sessionId
-        return 0.0;
+        if(signUpMap.containsKey(Username) && signUpMap.containsValue(busTicketCode)) {
+            return genSessionId();
+        } else {
+            throw new InvalidLoginException("invalid Login, no username of ticket code found");
+        }
     }
 
     @Override
     public Response handle(Command command) {
         // main method
+        //TODO verifyNonce - nonce
+        //TODO verifySignature - signature
         TreeMap argsMap = command.getArguments();
         System.out.println("Received: " + command.getMessage());
         switch (command.getId()) {
-            case "DownloadQuizQuestionsCommand":
-                return new DownloadQuizQuestionsResponse();
-            case "HelloCommand":
-                return new HelloResponse();
-            case "ListTourLocationsCommand":
-                return new ListTourResponse();
-            case "LoginCommand":
+            case "SignUpCommand":
                 String Username = (String) argsMap.get("Username");
                 String busTicketCode = (String) argsMap.get("busTicketCode");
-                double sessionId = loginHandle(Username, busTicketCode);
-                return new LogInResponse(sessionId);
-            case "PostQuizAnswersForMonumentCommand":
-                return new PostQuizAnswersForOneMonumentResponse();
-            case "ReadQuizResultsCommand":
-                return new ReadQuizResultsResponse();
-            case "SignUpCommand":
-                Username = (String) argsMap.get("Username");
-                busTicketCode = (String) argsMap.get("busTicketCode");
                 try {
                     signUpHandle(Username, busTicketCode);
+                    return new SignUpResponse();
                 } catch (SecException e) {
                     e.printStackTrace();
                     return new ErrorResponse(e.getMessage());
                 }
-                return new SignUpResponse();
+
+            case "LoginCommand":
+                Username = (String) argsMap.get("Username");
+                busTicketCode = (String) argsMap.get("busTicketCode");
+                double sessionId = 0;
+                try {
+                    sessionId = loginHandle(Username, busTicketCode);
+                    return new LogInResponse(sessionId);
+                } catch (InvalidLoginException e) {
+                    e.printStackTrace();
+                    return new ErrorResponse(e.getMessage());
+                } catch (SessionIdException e) {
+                    e.printStackTrace();
+                    return new ErrorResponse(e.getMessage());
+                }
+
+            case "DownloadQuizQuestionsCommand":
+                return new DownloadQuizQuestionsResponse();
+
+            case "HelloCommand":
+                return new HelloResponse();
+
+            case "ListTourLocationsCommand":
+                return new ListTourResponse();
+
+            case "PostQuizAnswersForMonumentCommand":
+                return new PostQuizAnswersForOneMonumentResponse();
+
+            case "ReadQuizResultsCommand":
+                return new ReadQuizResultsResponse();
+
             default:
                 HelloResponse hr = new HelloResponse();
                 hr.setMessage("error setting response");

@@ -33,6 +33,36 @@ public class TestUnitServer {
 
     }
 
+    //TODO login test
+    @Test
+    public void duplicateSessionIdLogin() {
+
+    }
+
+    //TODO login test
+    @Test
+    public void duplicateUsernameIdLogin() {
+
+    }
+
+    //TODO login test
+    @Test
+    public void duplicateTicketIdLogin() {
+
+    }
+
+    //TODO signature
+    @Test
+    public void signatureLogin() {
+
+    }
+
+    //TODO nonce
+    @Test
+    public void nonceLogin() {
+
+    }
+
     @After
     public static void after() {
 
