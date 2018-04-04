@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="16dp"
+    tools:context="pt.ulisboa.tecnico.cmu.hoponcmu.TourVenuesActivity">
+
+    <TextView
+        android:id="@+id/txv_tour"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TOUR VENUES"
+        android:textColor="@android:color/holo_orange_dark"
+        android:textSize="24sp"
+
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ListView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/lstv_venues"
+        app:layout_constraintTop_toBottomOf="@+id/txv_tour"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <Button
+        android:id="@+id/btn_logout"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="LOGOUT"
+        android:textColor="@android:color/holo_orange_dark"
+        android:textSize="20sp"
+        android:background="@android:color/transparent"
+
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+
+        android:onClick="backToHome"
+        />
+
+    <Button
+        android:id="@+id/btn_back"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="BACK"
+        android:textSize="24sp"
+        android:background="@android:color/holo_orange_dark"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:onClick="backToQuiz"
+
+        />
+</android.support.constraint.ConstraintLayout>
