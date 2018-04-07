@@ -6,6 +6,6 @@ import pt.shared.ServerAndClientGeneral.response.Response;
 public class HelloClientHandlerImpl extends ResponseHandlerImpl {
     public void handle(Response rsp) {
         super.handle(rsp);
-        System.out.println(rsp);
+        System.out.println();
     }
 }

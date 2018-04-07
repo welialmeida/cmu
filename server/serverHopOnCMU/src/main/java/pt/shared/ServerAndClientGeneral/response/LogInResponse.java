@@ -21,7 +21,7 @@ public class LogInResponse extends Response {
     }
 
     @Override
-    public Response handle(ResponseHandler ch) {
-        return null;
+    public void handle(ResponseHandler ch) {
+        return;
     }
 }

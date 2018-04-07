@@ -16,6 +16,7 @@ public class HelloCommandHandler extends CommandHandlerImpl {
 
     public Response handle(Command command) {
         super.handle(command);
+        System.out.println(command.getMessage());
         return new HelloResponse();
     }
 }

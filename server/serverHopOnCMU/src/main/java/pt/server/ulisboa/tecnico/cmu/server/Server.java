@@ -16,13 +16,15 @@ import pt.shared.ServerAndClientGeneral.command.Command;
 
 public class Server {
 
-    private static final int PORT = 9090;
-
     public static void main(String[] args) {
         CommandHandler cmdHandler;
         ServerSocket socket = null;
+        String host = args[0];
+        int port = Integer.parseInt(args[1]);
+
+
         try {
-            socket = new ServerSocket(PORT);
+            socket = new ServerSocket(port);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -40,9 +42,14 @@ public class Server {
             }
         });
 
-        System.out.println("Server is accepting connections at " + PORT);
+        System.out.println("server ready! ");
 
         while (true) {
+            System.out.println();
+            System.out.println("Server is accepting connections at "+ port);
+            System.out.println("ctrl+c to shutdown");
+            System.out.println();
+
             try {
                 client = socket.accept();
 
@@ -65,15 +72,6 @@ public class Server {
                 e.printStackTrace();
             } catch (Exception e) {
                 e.printStackTrace();
-            }
-            finally {
-                if (client != null) {
-                    try {
-                        client.close();
-                    } catch (Exception e) {
-                        System.out.println(e.getMessage());
-                    }
-                }
             }
         }
     }

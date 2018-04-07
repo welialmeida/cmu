@@ -1,5 +1,6 @@
 package pt.server.ulisboa.tecnico.cmu.server;
 
+import pt.server.ulisboa.tecnico.cmu.server.ServerExceptions.InvalidLoginException;
 import pt.shared.ServerAndClientGeneral.response.Response;
 import pt.shared.ServerAndClientGeneral.util.RSAKeyHandling;
 import pt.shared.ServerAndClientGeneral.Exceptions.SecException;

@@ -13,8 +13,9 @@ public class HelloCommand extends Command {
         return Id;
     }
 
-    public HelloCommand(String message) {
-        this.message = message;
+    public HelloCommand(String message)
+    {
+        this.message = message+"\n";
     }
 
     @Override

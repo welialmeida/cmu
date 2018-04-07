@@ -6,12 +6,16 @@ public class HelloResponse extends Response {
     private String message;
 
     public HelloResponse() {
-        this.message = "ping accepted";
+        this.message = "ping accepted"+"\n";
     }
 
     @Override
-    public Response handle(ResponseHandler ch) {
-        return null;
+    public void handle(ResponseHandler rh) {
+        rh.handle(this);
+    }
+
+    public String toString() {
+        return getMessage();
     }
 
     public void setMessage(String message) {

@@ -30,19 +30,19 @@ public class RSAKeyHandling {
         byte[] pubKeyEncoded = pubKey.getEncoded();
         System.out.println(printHexBinary(pubKeyEncoded));
 
-        System.out.println("Writing Private key to '" + keyPath + "' ...");
-        FileOutputStream privFos = new FileOutputStream(keyPath + "-priv.gen");
+        System.out.println("Writing Private key to '" + "/keys/"+keyPath + "' ...");
+        FileOutputStream privFos = new FileOutputStream("./keys/"+keyPath + "-priv.gen");
         privFos.write(privKeyEncoded);
         privFos.close();
-        System.out.println("Writing Pubic key to '" + keyPath + "' ...");
-        FileOutputStream pubFos = new FileOutputStream(keyPath + "-pub.gen");
+        System.out.println("Writing Pubic key to '" + "/keys/"+keyPath + "' ...");
+        FileOutputStream pubFos = new FileOutputStream("./keys/"+keyPath + "-pub.gen");
         pubFos.write(pubKeyEncoded);
         pubFos.close();
     }
 
     public static Key read(String keyPath) throws GeneralSecurityException, IOException {
         System.out.println("Reading key from file " + keyPath + " ...");
-        FileInputStream fis = new FileInputStream(keyPath);
+        FileInputStream fis = new FileInputStream("./keys/"+keyPath);
         byte[] encoded = new byte[fis.available()];
         fis.read(encoded);
         fis.close();
@@ -51,7 +51,7 @@ public class RSAKeyHandling {
     }
 
     public static byte[] readEncodedKey(String keyPath) throws GeneralSecurityException, IOException {
-        System.out.println("Reading key from file " + keyPath + " ...");
+        //System.out.println("Reading key from file " + keyPath + " ...");
         FileInputStream fis = new FileInputStream(keyPath);
         byte[] encoded = new byte[fis.available()];
         fis.read(encoded);
@@ -61,7 +61,7 @@ public class RSAKeyHandling {
     }
 
     public static PublicKey getPuvKey(String filename) throws GeneralSecurityException, IOException {
-        byte[] keyBytes = RSAKeyHandling.readEncodedKey(filename+"-pub.gen");
+        byte[] keyBytes = RSAKeyHandling.readEncodedKey("./keys/"+filename+"-pub.gen");
 
         X509EncodedKeySpec spec = new X509EncodedKeySpec(keyBytes);
         KeyFactory kf = KeyFactory.getInstance("RSA");
@@ -70,7 +70,7 @@ public class RSAKeyHandling {
     }
 
     public static PrivateKey getPrivKey(String filename) throws GeneralSecurityException, IOException {
-        byte[] keyBytes = RSAKeyHandling.readEncodedKey(filename+"-priv.gen");
+        byte[] keyBytes = RSAKeyHandling.readEncodedKey("./keys/"+filename+"-priv.gen");
 
         PKCS8EncodedKeySpec spec = new PKCS8EncodedKeySpec(keyBytes);
         KeyFactory kf = KeyFactory.getInstance("RSA");

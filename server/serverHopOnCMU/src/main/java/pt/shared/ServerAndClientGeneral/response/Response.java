@@ -34,7 +34,7 @@ public abstract class Response implements Serializable {
 
     }
 
-    public abstract Response handle(ResponseHandler ch);
+    public abstract void handle(ResponseHandler ch);
 
     private void setSessionId(double sessionId) {
         this.sessionId = sessionId;

@@ -1,4 +1,4 @@
-package pt.server.ulisboa.tecnico.cmu.server;
+package pt.server.ulisboa.tecnico.cmu.server.ServerExceptions;
 
 public class InvalidLoginException extends Exception {
 

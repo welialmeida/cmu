@@ -10,12 +10,12 @@ import java.security.*;
 import java.util.*;
 
 public class ClientApplication {
-    private PublicKey pubKey = null;
-    private PrivateKey privKey = null;
-    private double nonce = 0;
+    private static PublicKey pubKey = null;
+    private static PrivateKey privKey = null;
+    private static double nonce = 0;
     private static PublicKey serverPubKey;
-    private List<Double> receivingNonceList = new ArrayList();
-    private List<Double> sendingNonceList = new ArrayList();
+    private static List<Double> receivingNonceList = new ArrayList();
+    private static List<Double> sendingNonceList = new ArrayList();
     private static SecureRandom random;
     static Socket server;
     static Client client;
@@ -150,7 +150,7 @@ public class ClientApplication {
         }
     }
 
-    public void ping(String message) {
+    public static void ping(String message) {
         if (client == null) {
             System.out.println("Server is not available");
             return;
@@ -158,42 +158,42 @@ public class ClientApplication {
         client.ping(message);
     }
 
-    public void signUp() {
+    public static void signUp() {
         return;
     }
 
-    public void signIn() {
+    public static void signIn() {
         return;
     }
 
-    public void listTourLocations() {
+    public static void listTourLocations() {
         return;
     }
 
-    public void downloadQuizLocations() {
+    public static void downloadQuizLocations() {
         return;
     }
 
-    public void postAnswers() {
+    public static void postAnswers() {
         return;
     }
 
-    public void readResults() {
+    public static void readResults() {
         return;
     }
 
-    private void genNonce() throws SecException {
+    private static void genNonce() throws SecException {
         double newSeed = random.nextDouble();
 
         if (sendingNonceList.contains(newSeed)) {
             genNonce();
         } else {
-            this.sendingNonceList.add(newSeed);
-            this.nonce = newSeed;
+            ClientApplication.sendingNonceList.add(newSeed);
+            ClientApplication.nonce = newSeed;
         }
     }
 
-    private byte[] getSignature(List argArray) {
+    private static byte[] getSignature(List argArray) {
         byte[] signature = null;
         try {
             signature = SignatureHandling.createSignature(privKey, argArray);
@@ -204,7 +204,7 @@ public class ClientApplication {
         return signature;
     }
 
-    private void verifyNonce(double nonce) throws SecException {
+    private static void verifyNonce(double nonce) throws SecException {
         if (receivingNonceList.contains(nonce)) {
             throw new SecException("nonce already used");
         } else {
@@ -228,13 +228,13 @@ public class ClientApplication {
 
     }
 
-    private void setKeysWithFileName(String fileName) {
+    private static void setKeysWithFileName(String fileName) {
 
-        this.pubKey = null;
-        this.privKey = null;
+        ClientApplication.pubKey = null;
+        ClientApplication.privKey = null;
         try {
-            this.pubKey = RSAKeyHandling.getPuvKey(fileName);
-            this.privKey = RSAKeyHandling.getPrivKey(fileName);
+            ClientApplication.pubKey = RSAKeyHandling.getPuvKey(fileName);
+            ClientApplication.privKey = RSAKeyHandling.getPrivKey(fileName);
         } catch (GeneralSecurityException e) {
             e.printStackTrace();
             System.out.println("Unable to get public/private key");
