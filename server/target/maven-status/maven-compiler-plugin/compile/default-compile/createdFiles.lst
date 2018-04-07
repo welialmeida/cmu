@@ -1,9 +1,0 @@
-pt/ulisboa/tecnico/cmu/command/CommandHandler.class
-pt/ulisboa/tecnico/cmu/response/ResponseHandler.class
-pt/ulisboa/tecnico/cmu/command/HelloCommand.class
-pt/ulisboa/tecnico/cmu/command/Command.class
-pt/ulisboa/tecnico/cmu/server/Server.class
-pt/ulisboa/tecnico/cmu/server/HelloCommandHandlerImpl.class
-pt/ulisboa/tecnico/cmu/response/Response.class
-pt/ulisboa/tecnico/cmu/server/Server$1.class
-pt/ulisboa/tecnico/cmu/response/HelloResponse.class

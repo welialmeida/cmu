@@ -1,8 +1,0 @@
-/home/daniel/MCU/server/src/main/java/pt/ulisboa/tecnico/cmu/server/Server.java
-/home/daniel/MCU/server/src/main/java/pt/ulisboa/tecnico/cmu/response/ResponseHandler.java
-/home/daniel/MCU/server/src/main/java/pt/ulisboa/tecnico/cmu/server/HelloCommandHandlerImpl.java
-/home/daniel/MCU/server/src/main/java/pt/ulisboa/tecnico/cmu/response/HelloResponse.java
-/home/daniel/MCU/server/src/main/java/pt/ulisboa/tecnico/cmu/command/Command.java
-/home/daniel/MCU/server/src/main/java/pt/ulisboa/tecnico/cmu/response/Response.java
-/home/daniel/MCU/server/src/main/java/pt/ulisboa/tecnico/cmu/command/HelloCommand.java
-/home/daniel/MCU/server/src/main/java/pt/ulisboa/tecnico/cmu/command/CommandHandler.java
