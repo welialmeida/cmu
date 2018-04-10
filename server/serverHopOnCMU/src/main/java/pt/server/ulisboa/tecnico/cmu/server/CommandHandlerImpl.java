@@ -1,9 +1,13 @@
 package pt.server.ulisboa.tecnico.cmu.server;
 
+import pt.server.ulisboa.tecnico.cmu.server.ServerExceptions.AccountNotFoundException;
 import pt.server.ulisboa.tecnico.cmu.server.ServerExceptions.InvalidLoginException;
+import pt.shared.ServerAndClientGeneral.Account;
+import pt.shared.ServerAndClientGeneral.Exceptions.NonceErrorException;
+import pt.shared.ServerAndClientGeneral.Exceptions.SecException;
+import pt.shared.ServerAndClientGeneral.response.Error.ErrorResponse;
 import pt.shared.ServerAndClientGeneral.response.Response;
 import pt.shared.ServerAndClientGeneral.util.RSAKeyHandling;
-import pt.shared.ServerAndClientGeneral.Exceptions.SecException;
 import pt.shared.ServerAndClientGeneral.Exceptions.SessionIdException;
 import pt.shared.ServerAndClientGeneral.command.Command;
 import pt.shared.ServerAndClientGeneral.command.CommandHandler;
@@ -13,16 +17,20 @@ import java.security.GeneralSecurityException;
 import java.security.PrivateKey;
 import java.security.PublicKey;
 import java.security.SecureRandom;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.TreeMap;
 
 public abstract class CommandHandlerImpl implements CommandHandler {
 
     //TODO session Ids are SecureRandom Doubles - login
     //TODO nonces are SecureRandom Doubles - nonce
-    private TreeMap<Double, Double> nonceListsReceived; // nonceList of used nonces for each unique session id
-    private TreeMap<Double, PublicKey> idMap; // unique session ids for login
-    private TreeMap<String, Double> signInMap; // unique name as key, uniqueId as value
-    private TreeMap<String, String> signUpMap; // unique name as key, unique code as value
+    // TODO client generates key when he sends signUpCommand
+
+    private static TreeMap<PublicKey, Double> nonceListsReceived; // nonceList of used nonces for each unique session id
+    private static TreeMap<Double, PublicKey> idMap; // unique session ids for login
+    private static TreeMap<String, Double> signInMap; // unique name as key, sessionId as value
+    private static List<Account> signUpList; // cache
     private PrivateKey privKey;
     private PublicKey pubKey;
     private String keyFilename = "server";
@@ -31,11 +39,11 @@ public abstract class CommandHandlerImpl implements CommandHandler {
 
     public CommandHandlerImpl() throws GeneralSecurityException, IOException {
         nonceListsReceived = new TreeMap<>();
+        signInMap = new TreeMap<>();
         idMap = new TreeMap<>();
-        signUpMap = new TreeMap<>();
+        signUpList = new ArrayList<>();
         privKey = RSAKeyHandling.getPrivKey(keyFilename);
-        pubKey = RSAKeyHandling.getPuvKey(keyFilename);
-        this.getPersistentItems();
+        pubKey = RSAKeyHandling.getPubKey(keyFilename);
         random = SecureRandom.getInstance(secureRandAlgorithm);
     }
 
@@ -44,33 +52,44 @@ public abstract class CommandHandlerImpl implements CommandHandler {
     }
 
     //TODO - nonce
-    private void verifyNonce(PublicKey pubK, double nonce) {
+    private void verifyNonce(PublicKey pubK, double nonce) throws NonceErrorException{
         //verify with nonceLists
 
     }
 
-    //TODO - persistence
-    private void getPersistentItems() {
+    //TODO - signature
+    private void verifySignature(PublicKey pubK) throws SecException{
+
+    }
+
+    public Account getPersistentItem(String busTicketCode) throws AccountNotFoundException {
         // get Persistent Items into signUpMap
-
+        Account acc = null;
+        for(Account account : signUpList) {
+            if(account.getBusTicketCode().equals(busTicketCode)) {
+                return account;
+            }
+        }
+        try {
+            acc = Persistence.read(busTicketCode);
+            signUpList.add(acc);
+            return acc;
+        } catch (IOException e) {
+            e.printStackTrace();
+            throw new AccountNotFoundException("account not found");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+            throw new AccountNotFoundException("class account not found");
+        }
     }
 
-    //TODO - persistence
-    private void addUsernameAndTicketCodeToPersistentStorage(String Username, String busTicketCode) {
-        // format: user + "|" + busTicketCode
-
-    }
-
-    private void signUpHandle(String Username, String busTicketCode) throws SecException {
-        if (Username == null || busTicketCode == null)
-            throw new SecException("null username of busTicketCode");
-        if (signUpMap.containsKey(Username)) {
-            throw new SecException("username already exists");
-        } else if (signUpMap.containsValue(busTicketCode)) {
-            throw new SecException("ticket code already exists");
-        } else {
-            signUpMap.put(Username, busTicketCode);
-            addUsernameAndTicketCodeToPersistentStorage(Username, busTicketCode);
+    public void addUsernameAndTicketCodeToPersistentStorage(String username, String busTicketCode, PublicKey pubK) {
+        Account acc = new Account(username, busTicketCode, pubK);
+        this.signUpList.add(acc);
+        try {
+            Persistence.store(busTicketCode, acc);
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
@@ -82,16 +101,24 @@ public abstract class CommandHandlerImpl implements CommandHandler {
         return newSeed;
     }
 
+    public List<Account> getSignUpList() {
+        return this.signUpList;
+    }
+
     //TODO - login
-    private double loginHandle(String Username, String busTicketCode) throws InvalidLoginException, SessionIdException {
+    private double loginHandle(Account acc) throws InvalidLoginException, SessionIdException {
         // busTicketCode is password
         double sessionId;
-        if (signUpMap.containsKey(Username) && signUpMap.containsValue(busTicketCode)) {
+        String username;
+        String busTicketCode;
+        if (signUpList.contains(acc)) {
+            username = acc.getUsername();
+            busTicketCode = acc.getBusTicketCode();
             sessionId = genSessionId();
-            if (signInMap.containsKey(Username)) {
+            if (signInMap.containsKey(username)) {
                 throw new InvalidLoginException("Username already logged in");
             } else {
-                signInMap.put(Username, sessionId);
+                signInMap.put(username, sessionId);
             }
             return sessionId;
         } else {
@@ -109,9 +136,33 @@ public abstract class CommandHandlerImpl implements CommandHandler {
 
     @Override
     public Response handle(Command command) {
-        // main method
-        //TODO verifyNonce - nonce
-        //TODO verifySignature - signature
+
+        double nonce = (double) command.getArgument("nonce");
+        PublicKey pubK = (PublicKey) command.getArgument("pubK");
+        TreeMap<String, Object> argsMap = new TreeMap<>();
+
+        try {
+            verifyNonce(pubK, nonce);
+        } catch (NonceErrorException e) {
+            e.printStackTrace();
+            return new ErrorResponse(argsMap, "nonce check failed");
+        }
+
+        try {
+            verifySignature(pubK);
+        } catch (SecException e) {
+            e.printStackTrace();
+            return new ErrorResponse(argsMap, "signature check failure");
+        }
+
         return null;
+    }
+
+    public static void addToSessionIds(String busTicketCode, double sessionId) {
+        signInMap.put(busTicketCode, sessionId);
+    }
+
+    public static double getSessionId(String busTicketCode) {
+        return signInMap.get(busTicketCode);
     }
 }

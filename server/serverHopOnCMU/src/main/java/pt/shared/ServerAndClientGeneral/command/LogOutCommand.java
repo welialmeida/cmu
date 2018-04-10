@@ -2,6 +2,8 @@ package pt.shared.ServerAndClientGeneral.command;
 
 import pt.shared.ServerAndClientGeneral.response.Response;
 
+import java.util.TreeMap;
+
 public class LogOutCommand extends Command {
 
     private static final long serialVersionUID = -8807331723807741905L;
@@ -13,7 +15,8 @@ public class LogOutCommand extends Command {
         return Id;
     }
 
-    public LogOutCommand(String message) {
+    public LogOutCommand(String message, TreeMap<String, Object> argsMap) {
+        super(argsMap);
         this.message = message;
     }
 

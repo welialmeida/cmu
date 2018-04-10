@@ -1,20 +1,24 @@
 package pt.shared.ServerAndClientGeneral.command;
 
 import java.io.Serializable;
+import java.security.PrivateKey;
 import java.security.PublicKey;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.TreeMap;
 
+import pt.shared.ServerAndClientGeneral.Exceptions.NonceErrorException;
+import pt.shared.ServerAndClientGeneral.Exceptions.SecException;
 import pt.shared.ServerAndClientGeneral.response.Response;
 
 public abstract class Command implements Serializable {
 
-    private TreeMap<Double, Double> nonceListsSend; // nonceList of used nonces for each unique session id
-    private byte[] signature;
-    private List<Object> argsList;
+    //TODO signature and nonce
     private TreeMap<String, Object> argsMap;
+    private byte[] signature;
+    private double nonce;
     private double sessionId;
+    private PublicKey pubK;
 
     public abstract Response handle(CommandHandler ch);
 
@@ -24,21 +28,56 @@ public abstract class Command implements Serializable {
 
     //TODO - nonce
     //TODO - signature
-    public Command(PublicKey pubK, byte[] signature) {
-        argsList = new ArrayList<>();
-        argsMap = new TreeMap<>();
-        genNonce(pubK);
-    }
-
-    public Command(PublicKey pubK, byte[] signature, double sessionId) {
-        argsList = new ArrayList<>();
-        argsMap = new TreeMap<>();
-        genNonce(pubK);
+    public Command(double sessionId, TreeMap<String, Object> argsMap, PrivateKey clientPrivKey, PublicKey pubK) {
+        //session id and security
+        this.argsMap = argsMap;
+        this.argsMap.put("id", this.getId());
         setSessionId(sessionId);
+        this.nonce = genNonce();
+        this.argsMap.put("nonce", this.nonce);
+        this.pubK = pubK;
+        this.argsMap.put("pubK", this.pubK);
+        this.signature = genSignature(clientPrivKey);
+
     }
 
-    public Command() {
+    public Command(TreeMap<String, Object> argsMap, PrivateKey clientPrivKey, PublicKey pubK) {
+        //security
+        this.argsMap = argsMap;
+        this.argsMap.put("id", this.getId());
+        this.nonce = genNonce();
+        this.argsMap.put("nonce", this.nonce);
+        this.pubK = pubK;
+        this.argsMap.put("pubK", this.pubK);
+        this.signature = genSignature(clientPrivKey);
+    }
 
+    public Command(TreeMap<String, Object> argsMap) {
+        //basic
+        this.argsMap = argsMap;
+        this.argsMap.put("id", this.getId());
+        this.nonce = genNonce();
+    }
+
+    public boolean equals(Object obj) {
+        // checks if args are equal in both objects
+
+        if (!this.getClass().equals(obj.getClass())) {
+            System.out.println("different classes");
+            return false;
+        }
+
+        Command cmd = (Command)obj;
+        for (String key : cmd.getArguments().keySet()) {
+            if (this.getArguments().containsKey(key)) {
+                if(!this.getArguments().containsValue(cmd.getArgument(key))) {
+                    return false;
+                }
+            } else {
+                return false;
+            }
+        }
+        return true;
     }
 
     private void setSessionId(double sessionId) {
@@ -51,11 +90,21 @@ public abstract class Command implements Serializable {
     }
 
     //TODO - nonce
-    private void genNonce(PublicKey pubK) {
+    private double genNonce() {
 
+        return 0.0;
     }
 
-    public TreeMap getArguments() {
+    //TODO - signature
+    public byte[] genSignature(PrivateKey privKey) {
+        //List args = argsMapToList();
+        //Signature signature = SignatureHandling.createSignature(privKey, );
+        //addToArgs("signature", signature) //add to argsMap
+        //return signature;
+        return null;
+    }
+
+    public TreeMap<String, Object> getArguments() {
         return argsMap;
     }
 
@@ -68,12 +117,7 @@ public abstract class Command implements Serializable {
         return argsMap.get(argName);
     }
 
-    private void addToArgsList(Object obj) {
-        argsList.add(obj);
-    }
-
     public void addToArgs(String argName, Object arg) {
-        addToArgsList(arg);
         argsMap.put(argName, arg);
     }
 }

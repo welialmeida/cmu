@@ -10,18 +10,15 @@ import java.security.*;
 import java.util.*;
 
 public class ClientApplication {
-    private static PublicKey pubKey = null;
-    private static PrivateKey privKey = null;
-    private static double nonce = 0;
     private static PublicKey serverPubKey;
     private static List<Double> receivingNonceList = new ArrayList();
-    private static List<Double> sendingNonceList = new ArrayList();
     private static SecureRandom random;
     static Socket server;
     static Client client;
 
     public static void main(String[] args) {
 
+        String pubKFilenameInUse = "client1";
         String serverIp = args[0];
         int serverPort = Integer.parseInt(args[1]);
         try {
@@ -29,10 +26,10 @@ public class ClientApplication {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        client = new Client(server);
+        client = new Client(server, pubKFilenameInUse);
         
         try {
-            serverPubKey = RSAKeyHandling.getPuvKey("server");
+            serverPubKey = RSAKeyHandling.getPubKey("server");
         } catch (GeneralSecurityException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -182,36 +179,6 @@ public class ClientApplication {
         return;
     }
 
-    private static void genNonce() throws SecException {
-        double newSeed = random.nextDouble();
-
-        if (sendingNonceList.contains(newSeed)) {
-            genNonce();
-        } else {
-            ClientApplication.sendingNonceList.add(newSeed);
-            ClientApplication.nonce = newSeed;
-        }
-    }
-
-    private static byte[] getSignature(List argArray) {
-        byte[] signature = null;
-        try {
-            signature = SignatureHandling.createSignature(privKey, argArray);
-        } catch (InvalidKeyException e) {
-            e.printStackTrace();
-            System.out.println("Unable to create signature");
-        }
-        return signature;
-    }
-
-    private static void verifyNonce(double nonce) throws SecException {
-        if (receivingNonceList.contains(nonce)) {
-            throw new SecException("nonce already used");
-        } else {
-            receivingNonceList.add(nonce);
-        }
-    }
-
     public static void RSAKeyGenerator(String path) {
 
         try {
@@ -226,24 +193,6 @@ public class ClientApplication {
 
         System.out.println("Done.");
 
-    }
-
-    private static void setKeysWithFileName(String fileName) {
-
-        ClientApplication.pubKey = null;
-        ClientApplication.privKey = null;
-        try {
-            ClientApplication.pubKey = RSAKeyHandling.getPuvKey(fileName);
-            ClientApplication.privKey = RSAKeyHandling.getPrivKey(fileName);
-        } catch (GeneralSecurityException e) {
-            e.printStackTrace();
-            System.out.println("Unable to get public/private key");
-            return;
-        } catch (IOException e) {
-            e.printStackTrace();
-            System.out.println("Unable to find public/private key file");
-            return;
-        }
     }
 
 }

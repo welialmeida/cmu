@@ -8,7 +8,9 @@ import java.net.Socket;
 import java.security.GeneralSecurityException;
 import java.util.TreeMap;
 
+import pt.server.ulisboa.tecnico.cmu.server.ServerExceptions.InvalidSignupException;
 import pt.server.ulisboa.tecnico.cmu.server.handlers.HelloCommandHandler;
+import pt.server.ulisboa.tecnico.cmu.server.handlers.SignUpCommandHandler;
 import pt.shared.ServerAndClientGeneral.Exceptions.MethodNotFoundException;
 import pt.shared.ServerAndClientGeneral.command.CommandHandler;
 import pt.shared.ServerAndClientGeneral.response.Response;
@@ -19,7 +21,7 @@ public class Server {
     public static void main(String[] args) {
         CommandHandler cmdHandler;
         ServerSocket socket = null;
-        String host = args[0];
+        //String host = args[0];
         int port = Integer.parseInt(args[1]);
 
 
@@ -76,24 +78,17 @@ public class Server {
         }
     }
 
-    private static CommandHandler handlerFinder(Command command) throws GeneralSecurityException, IOException, MethodNotFoundException {
-        TreeMap argsMap = command.getArguments();
-        System.out.println("Received: " + command.getMessage());
-        switch (command.getId()) {
+    private static CommandHandler handlerFinder(Command command) throws GeneralSecurityException, IOException, MethodNotFoundException, InvalidSignupException {
 
+        System.out.println("Received: " + command.getMessage());
+
+        switch (command.getId()) {
             case "HelloCommand":
                 return new HelloCommandHandler();
-                /*
             case "SignUpCommand":
-                String Username = (String) argsMap.get("Username");
-                String busTicketCode = (String) argsMap.get("busTicketCode");
-                try {
-                    signUpHandle(Username, busTicketCode);
-                    return new SignUpResponse();
-                } catch (SecException e) {
-                    e.printStackTrace();
-                    return new ErrorResponse(e.getMessage());
-                }
+                return new SignUpCommandHandler();
+
+            /*
             case "LoginCommand":
                 Username = (String) argsMap.get("Username");
                 busTicketCode = (String) argsMap.get("busTicketCode");

@@ -7,27 +7,27 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.security.PublicKey;
 import java.util.TreeMap;
 
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.io.IOUtils;
+import pt.shared.ServerAndClientGeneral.Account;
 
 //TODO change public Key key in map with bus ticket code - persistence
 public class Persistence {
 
-    public static void store(PublicKey pubK, Account account) throws IOException {
+    public static void store(String busTicketCode, Account account) throws IOException {
 
-        FileOutputStream fos = new FileOutputStream("./Accounts/" + calculateMD5(pubK) + ".cli");
+        FileOutputStream fos = new FileOutputStream("./Accounts/" + calculateMD5(busTicketCode) + ".cli");
         ObjectOutputStream os = new ObjectOutputStream(fos);
         os.writeObject(account);
         os.close();
         fos.close();
     }
 
-    public static Account read(PublicKey pubK) throws IOException, ClassNotFoundException {
+    public static Account read(String busTicketCode) throws IOException, ClassNotFoundException {
 
-        FileInputStream fis = new FileInputStream("./Accounts/" + calculateMD5(pubK) + ".cli");
+        FileInputStream fis = new FileInputStream("./Accounts/" + calculateMD5(busTicketCode) + ".cli");
         ObjectInputStream ois = new ObjectInputStream(fis);
         Account account = (Account) ois.readObject();
         ois.close();
@@ -35,12 +35,12 @@ public class Persistence {
         return account;
     }
 
-    public static String calculateMD5(PublicKey pubK) throws IOException {
+    public static String calculateMD5(String busTicketCode) throws IOException {
 
         String filename = "./Accounts/temp.cli";
         FileOutputStream temp = new FileOutputStream(filename);
         ObjectOutputStream oos = new ObjectOutputStream(temp);
-        oos.writeObject(pubK);
+        oos.writeObject(busTicketCode);
 
         FileInputStream i = new FileInputStream(new File(filename));
         String md5 = DigestUtils.md5Hex(IOUtils.toByteArray(i));
@@ -49,7 +49,7 @@ public class Persistence {
         return md5;
     }
 
-    public static boolean exists(PublicKey pubK) {
+    public static boolean exists(String busTicketCode) {
 
         File files[];
         File dir = new File("./Accounts/");
@@ -57,7 +57,7 @@ public class Persistence {
 
         for (File file : files) {
             try {
-                if (file.getName().equals(calculateMD5(pubK) + ".cli")) {
+                if (file.getName().equals(calculateMD5(busTicketCode) + ".cli")) {
                     return true;
 
                 }
@@ -105,12 +105,12 @@ public class Persistence {
         }
     }
 
-    public static void deleteAccount(PublicKey pubK) throws IOException {
+    public static void deleteAccount(String busTicketCode) throws IOException {
         File files[];
         File dir = new File("./Accounts/");
         files = dir.listFiles();
         for (File file : files) {
-            if (file.getName().equals(calculateMD5(pubK) + ".cli")) {
+            if (file.getName().equals(calculateMD5(busTicketCode) + ".cli")) {
                 file.delete();
                 break;
             }

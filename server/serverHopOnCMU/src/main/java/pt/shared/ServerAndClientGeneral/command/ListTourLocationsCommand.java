@@ -2,6 +2,8 @@ package pt.shared.ServerAndClientGeneral.command;
 
 import pt.shared.ServerAndClientGeneral.response.Response;
 
+import java.util.TreeMap;
+
 /**
  * Created by daniel on 01-04-2018.
  */
@@ -17,7 +19,8 @@ public class ListTourLocationsCommand extends Command {
         return Id;
     }
 
-    public ListTourLocationsCommand(String message) {
+    public ListTourLocationsCommand(String message, TreeMap<String, Object> argsMap) {
+        super(argsMap);
         this.message = message;
     }
 

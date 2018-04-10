@@ -1,6 +1,19 @@
 package pt.ulisboa.tecnico;
 
 import org.junit.*;
+import pt.server.ulisboa.tecnico.cmu.server.handlers.SignUpCommandHandler;
+import pt.shared.ServerAndClientGeneral.Exceptions.NonceErrorException;
+import pt.shared.ServerAndClientGeneral.Exceptions.SecException;
+import pt.shared.ServerAndClientGeneral.command.Command;
+import pt.shared.ServerAndClientGeneral.command.SignUpCommand;
+import pt.shared.ServerAndClientGeneral.response.LogOutResponse;
+import pt.shared.ServerAndClientGeneral.response.Response;
+import pt.shared.ServerAndClientGeneral.response.SignUpResponse;
+
+import java.io.IOException;
+import java.security.GeneralSecurityException;
+
+import static org.junit.Assert.fail;
 
 
 public class TestUnitServer {
@@ -17,7 +30,26 @@ public class TestUnitServer {
 
     //TODO signup test
     @Test
-    public void SimpleSignUp() {
+    public void SimpleSignUp()
+            throws SecException, NonceErrorException, GeneralSecurityException, IOException {
+        /*
+        String username = "user";
+        String busTicketCode = "code";
+
+        Response dummyResponse = new SignUpResponse();
+        Command signUpCommand = new SignUpCommand();
+        SignUpCommandHandler handler = null;
+
+        Response outputResponse = null;
+
+        handler = new SignUpCommandHandler();
+
+        outputResponse = handler.handle(signUpCommand);
+
+        if(!outputResponse.equals(dummyResponse)) {
+            fail();
+        }
+        */
 
     }
 

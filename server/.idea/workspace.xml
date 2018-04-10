@@ -2,6 +2,7 @@
 <project version="4">
   <component name="BookmarkManager">
     <bookmark url="file://$PROJECT_DIR$/clientDummyTest/pom.xml" line="32" />
+    <bookmark url="file://$PROJECT_DIR$/serverHopOnCMU/src/main/java/pt/shared/ServerAndClientGeneral/response/Response.java" line="100" mnemonic="0" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c1608580-0aed-4cbe-8f74-81b98ecf77dd" name="Default" comment="" />
@@ -17,28 +18,34 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ReadQuizResultsResponse.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/serverHopOnCMU/src/main/java/pt/shared/ServerAndClientGeneral/response/ReadQuizResultsResponse.java">
+      <file leaf-file-name="Client.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/clientDummyTest/src/main/java/pt/client/mobileClientDummy/Client.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="13" column="14" lean-forward="false" selection-start-line="13" selection-start-column="14" selection-end-line="13" selection-end-column="14" />
+            <state relative-caret-position="178">
+              <caret line="42" column="0" lean-forward="true" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CommandHandlerImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/serverHopOnCMU/src/main/java/pt/server/ulisboa/tecnico/cmu/server/CommandHandlerImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1879">
+              <caret line="23" column="51" lean-forward="false" selection-start-line="23" selection-start-column="51" selection-end-line="23" selection-end-column="51" />
               <folding>
-                <element signature="e#361#362#0" expanded="true" />
-                <element signature="e#383#384#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SignUpResponse.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/serverHopOnCMU/src/main/java/pt/shared/ServerAndClientGeneral/response/SignUpResponse.java">
+      <file leaf-file-name="HelloClientHandlerImpl.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/clientDummyTest/src/main/java/pt/client/mobileClientDummy/handlers/HelloClientHandlerImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="13" column="14" lean-forward="false" selection-start-line="13" selection-start-column="14" selection-end-line="13" selection-end-column="14" />
-              <folding>
-                <element signature="e#334#335#0" expanded="true" />
-                <element signature="e#356#357#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="119">
+              <caret line="8" column="27" lean-forward="false" selection-start-line="8" selection-start-column="27" selection-end-line="8" selection-end-column="27" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -46,8 +53,8 @@
       <file leaf-file-name="ResponseHandlerImpl.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/clientDummyTest/src/main/java/pt/client/mobileClientDummy/ResponseHandlerImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="11" lean-forward="false" selection-start-line="6" selection-start-column="11" selection-end-line="6" selection-end-column="11" />
+            <state relative-caret-position="195">
+              <caret line="26" column="34" lean-forward="true" selection-start-line="26" selection-start-column="34" selection-end-line="26" selection-end-column="34" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -55,24 +62,41 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PostQuizAnswersForOneMonumentResponse.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/serverHopOnCMU/src/main/java/pt/shared/ServerAndClientGeneral/response/PostQuizAnswersForOneMonumentResponse.java">
+      <file leaf-file-name="ClientApplication.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/clientDummyTest/src/main/java/pt/client/mobileClientDummy/ClientApplication.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="13" column="14" lean-forward="false" selection-start-line="13" selection-start-column="14" selection-end-line="13" selection-end-column="14" />
-              <folding>
-                <element signature="e#389#390#0" expanded="true" />
-                <element signature="e#411#412#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="433">
+              <caret line="195" column="5" lean-forward="false" selection-start-line="195" selection-start-column="5" selection-end-line="195" selection-end-column="5" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HelloClientHandlerImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/clientDummyTest/src/main/java/pt/client/mobileClientDummy/handlers/HelloClientHandlerImpl.java">
+      <file leaf-file-name="Server.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/serverHopOnCMU/src/main/java/pt/server/ulisboa/tecnico/cmu/server/Server.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="27" lean-forward="false" selection-start-line="8" selection-start-column="27" selection-end-line="8" selection-end-column="27" />
+            <state relative-caret-position="17">
+              <caret line="23" column="10" lean-forward="false" selection-start-line="23" selection-start-column="10" selection-end-line="23" selection-end-column="10" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SignUpCommandHandler.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/serverHopOnCMU/src/main/java/pt/server/ulisboa/tecnico/cmu/server/handlers/SignUpCommandHandler.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="51">
+              <caret line="3" column="48" lean-forward="false" selection-start-line="3" selection-start-column="48" selection-end-line="3" selection-end-column="48" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Response.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/serverHopOnCMU/src/main/java/pt/shared/ServerAndClientGeneral/response/Response.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1139">
+              <caret line="67" column="31" lean-forward="false" selection-start-line="67" selection-start-column="25" selection-end-line="67" selection-end-column="31" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -80,69 +104,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HelloResponse.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/serverHopOnCMU/src/main/java/pt/shared/ServerAndClientGeneral/response/HelloResponse.java">
+      <file leaf-file-name="Command.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/serverHopOnCMU/src/main/java/pt/shared/ServerAndClientGeneral/command/Command.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="17" column="15" lean-forward="false" selection-start-line="17" selection-start-column="15" selection-end-line="17" selection-end-column="15" />
-              <folding>
-                <element signature="e#336#337#0" expanded="true" />
-                <element signature="e#367#368#0" expanded="true" />
-                <element signature="e#399#400#0" expanded="true" />
-                <element signature="e#434#435#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LogOutResponse.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/serverHopOnCMU/src/main/java/pt/shared/ServerAndClientGeneral/response/LogOutResponse.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" column="14" lean-forward="false" selection-start-line="14" selection-start-column="14" selection-end-line="14" selection-end-column="14" />
-              <folding>
-                <element signature="e#351#352#0" expanded="true" />
-                <element signature="e#373#374#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LogInResponse.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/serverHopOnCMU/src/main/java/pt/shared/ServerAndClientGeneral/response/LogInResponse.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="24" column="14" lean-forward="false" selection-start-line="24" selection-start-column="14" selection-end-line="24" selection-end-column="14" />
-              <folding>
-                <element signature="e#566#567#0" expanded="true" />
-                <element signature="e#588#589#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ListTourResponse.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/serverHopOnCMU/src/main/java/pt/shared/ServerAndClientGeneral/response/ListTourResponse.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="13" column="14" lean-forward="false" selection-start-line="13" selection-start-column="14" selection-end-line="13" selection-end-column="14" />
-              <folding>
-                <element signature="e#340#341#0" expanded="true" />
-                <element signature="e#362#363#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ErrorResponse.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/serverHopOnCMU/src/main/java/pt/shared/ServerAndClientGeneral/response/ErrorResponse.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="21" column="14" lean-forward="false" selection-start-line="21" selection-start-column="14" selection-end-line="21" selection-end-column="14" />
-              <folding>
-                <element signature="e#490#491#0" expanded="true" />
-                <element signature="e#512#513#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="216">
+              <caret line="35" column="29" lean-forward="false" selection-start-line="35" selection-start-column="21" selection-end-line="35" selection-end-column="29" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -158,29 +125,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>hc</find>
-      <find>HelloResponse</find>
-      <find>message</find>
-      <find>getsess</find>
-      <find>han</find>
-      <find>_args</find>
-      <find>hds</find>
-      <find>localhost</find>
-      <find>host</find>
-      <find>response</find>
-      <find>reconnect</find>
-      <find>isServerUp</find>
-      <find>chi</find>
-      <find>dependency</find>
-      <find>artifactId</find>
-      <find>hds-</find>
-      <find>erase</find>
-      <find>args</find>
-      <find>AccountFileSystem</find>
-      <find>ledger</find>
-      <find>pubKey</find>
-      <find>ping</find>
+      <find>addToArgs</find>
+      <find>argsMap</find>
+      <find>signUpMap</find>
+      <find>equals</find>
+      <find>getNonce</find>
+      <find>getAr</find>
+      <find>rsp</find>
+      <find>getArguments</find>
+      <find>genSigna</find>
+      <find>genNo</find>
+      <find>genSignature</find>
+      <find>privKey</find>
+      <find>get</find>
+      <find>Username</find>
+      <find>signUpList</find>
+      <find>addU</find>
+      <find>AccountNotFoundException</find>
+      <find>InvalidLoginException</find>
+      <find>throw</find>
+      <find>verifyNonce</find>
+      <find>verifySignature</find>
       <find>handle</find>
+      <find>command</find>
+      <find>abstract</find>
+      <find>Account</find>
+      <find>pubK</find>
+      <find>getPuvKey</find>
+      <find>receivingNonceList</find>
+      <find>nonce</find>
+      <find>genNonce</find>
     </findStrings>
     <replaceStrings>
       <replace>command</replace>
@@ -190,6 +164,9 @@
       <replace>cmdHandler</replace>
       <replace>Persistence</replace>
       <replace>account</replace>
+      <replace>username</replace>
+      <replace>cmd</replace>
+      <replace>getPubKey</replace>
     </replaceStrings>
   </component>
   <component name="GradleLocalSettings">
@@ -200,23 +177,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/pt/ulisboa/tecnico/cmu/response/SignUpResponse.java" />
-        <option value="$PROJECT_DIR$/src/main/java/pt/ulisboa/tecnico/cmu/server/InvalidLoginException.java" />
-        <option value="$PROJECT_DIR$/src/main/java/pt/ulisboa/tecnico/cmu/response/LogInResponse.java" />
-        <option value="$PROJECT_DIR$/src/main/java/pt/ulisboa/tecnico/cmu/command/LogOutCommand.java" />
-        <option value="$PROJECT_DIR$/src/main/java/pt/ulisboa/tecnico/cmu/response/LogOutResponse.java" />
-        <option value="$PROJECT_DIR$/src/main/java/pt/ulisboa/tecnico/cmu/response/Response.java" />
-        <option value="$PROJECT_DIR$/src/test/java/pt/ulisboa/tecnico/TestUnitServer.java" />
-        <option value="$PROJECT_DIR$/src/main/java/pt/ulisboa/tecnico/cmu/command/Command.java" />
-        <option value="$PROJECT_DIR$/src/main/java/pt/ulisboa/tecnico/cmu/server/CommandHandlerImpl.java" />
-        <option value="$PROJECT_DIR$/testClient/src/test/java/pt/sec/Clientcoin/TestClientIT.java" />
-        <option value="$PROJECT_DIR$/testClient/pom.xml" />
-        <option value="$PROJECT_DIR$/testClient/src/test/java/pt/sec/mobileClientDummy/TestClientIT.java" />
-        <option value="$PROJECT_DIR$/testClient/src/main/java/pt/sec/mobileClientDummy/ClientApplication.java" />
-        <option value="$PROJECT_DIR$/server/pom.xml" />
-        <option value="$PROJECT_DIR$/clientAndServerSharedPackages/src/main/java/pt/ulisboa/tecnico/cmu/ServerAndClientGeneral/response/ResponseHandler.java" />
-        <option value="$PROJECT_DIR$/clientDummyTest/src/main/java/pt/sec/mobileClientDummy/handlers/ResponseHandlerImpl.java" />
-        <option value="$PROJECT_DIR$/clientAndServerSharedPackages/src/main/java/pt/ulisboa/tecnico/cmu/ServerAndClientGeneral/response/Response.java" />
         <option value="$PROJECT_DIR$/clientDummyTest/src/main/java/pt/sec/mobileClientDummy/Client.java" />
         <option value="$PROJECT_DIR$/clientDummyTest/src/main/java/pt/sec/mobileClientDummy/handlers/HelloClientHandlerImpl.java" />
         <option value="$PROJECT_DIR$/clientDummyTest/src/main/java/pt/sec/mobileClientDummy/ResponseHandlerImpl.java" />
@@ -227,30 +187,47 @@
         <option value="$PROJECT_DIR$/clientAndServerSharedPackages/src/main/java/pt/ulisboa/tecnico/cmu/ServerAndClientGeneral/Exceptions/MethodNotFoundException.java" />
         <option value="$PROJECT_DIR$/serverHopOnCMU/src/main/java/pt/ulisboa/tecnico/cmu/server/Server.java" />
         <option value="$PROJECT_DIR$/serverHopOnCMU/src/main/java/pt/ulisboa/tecnico/cmu/server/handlers/HelloCommandHandler.java" />
-        <option value="$PROJECT_DIR$/serverHopOnCMU/src/test/java/pt/ulisboa/tecnico/TestUnitServer.java" />
         <option value="$PROJECT_DIR$/clientDummyTest/pom.xml" />
         <option value="$PROJECT_DIR$/clientDummyTest/src/test/java/pt/client/mobileClientDummy/TestClientIT.java" />
-        <option value="$PROJECT_DIR$/serverHopOnCMU/src/main/java/pt/server/ulisboa/tecnico/cmu/server/Persistence.java" />
         <option value="$PROJECT_DIR$/serverHopOnCMU/src/main/java/pt/server/ulisboa/tecnico/cmu/server/SignatureHandling.java" />
-        <option value="$PROJECT_DIR$/serverHopOnCMU/src/main/java/pt/shared/ServerAndClientGeneral/util/RSAKeyHandling.java" />
         <option value="$PROJECT_DIR$/serverHopOnCMU/pom.xml" />
-        <option value="$PROJECT_DIR$/serverHopOnCMU/src/main/java/pt/server/ulisboa/tecnico/cmu/server/Server.java" />
         <option value="$PROJECT_DIR$/clientDummyTest/src/main/java/pt/client/mobileClientDummy/FailedToConnectToServer.java" />
-        <option value="$PROJECT_DIR$/clientDummyTest/src/main/java/pt/client/mobileClientDummy/Client.java" />
-        <option value="$PROJECT_DIR$/clientDummyTest/src/main/java/pt/client/mobileClientDummy/ClientApplication.java" />
-        <option value="$PROJECT_DIR$/serverHopOnCMU/src/main/java/pt/server/ulisboa/tecnico/cmu/server/handlers/HelloCommandHandler.java" />
-        <option value="$PROJECT_DIR$/serverHopOnCMU/src/main/java/pt/shared/ServerAndClientGeneral/command/HelloCommand.java" />
-        <option value="$PROJECT_DIR$/serverHopOnCMU/src/main/java/pt/shared/ServerAndClientGeneral/response/Response.java" />
+        <option value="$PROJECT_DIR$/clientDummyTest/src/main/java/pt/client/mobileClientDummy/handlers/HelloClientHandlerImpl.java" />
+        <option value="$PROJECT_DIR$/serverHopOnCMU/src/main/java/pt/server/ulisboa/tecnico/cmu/server/Account.java" />
+        <option value="$PROJECT_DIR$/serverHopOnCMU/src/main/java/pt/server/ulisboa/tecnico/cmu/server/ServerExceptions/InvalidSignupException.java" />
+        <option value="$PROJECT_DIR$/serverHopOnCMU/src/main/java/pt/server/ulisboa/tecnico/cmu/server/Persistence.java" />
         <option value="$PROJECT_DIR$/serverHopOnCMU/src/main/java/pt/shared/ServerAndClientGeneral/response/DownloadQuizQuestionsResponse.java" />
         <option value="$PROJECT_DIR$/serverHopOnCMU/src/main/java/pt/shared/ServerAndClientGeneral/response/ErrorResponse.java" />
-        <option value="$PROJECT_DIR$/serverHopOnCMU/src/main/java/pt/shared/ServerAndClientGeneral/response/ListTourResponse.java" />
+        <option value="$PROJECT_DIR$/serverHopOnCMU/src/main/java/pt/server/ulisboa/tecnico/cmu/server/ServerExceptions/AccountNotFoundException.java" />
+        <option value="$PROJECT_DIR$/serverHopOnCMU/src/test/java/pt/ulisboa/tecnico/TestUnitServer.java" />
+        <option value="$PROJECT_DIR$/serverHopOnCMU/src/main/java/pt/server/ulisboa/tecnico/cmu/server/Server.java" />
+        <option value="$PROJECT_DIR$/serverHopOnCMU/src/main/java/pt/shared/ServerAndClientGeneral/response/SignUpResponse.java" />
+        <option value="$PROJECT_DIR$/serverHopOnCMU/src/main/java/pt/shared/ServerAndClientGeneral/response/HelloResponse.java" />
         <option value="$PROJECT_DIR$/serverHopOnCMU/src/main/java/pt/shared/ServerAndClientGeneral/response/LogInResponse.java" />
+        <option value="$PROJECT_DIR$/serverHopOnCMU/src/main/java/pt/shared/ServerAndClientGeneral/response/ReadQuizResultsResponse.java" />
         <option value="$PROJECT_DIR$/serverHopOnCMU/src/main/java/pt/shared/ServerAndClientGeneral/response/LogOutResponse.java" />
         <option value="$PROJECT_DIR$/serverHopOnCMU/src/main/java/pt/shared/ServerAndClientGeneral/response/PostQuizAnswersForOneMonumentResponse.java" />
-        <option value="$PROJECT_DIR$/serverHopOnCMU/src/main/java/pt/shared/ServerAndClientGeneral/response/ReadQuizResultsResponse.java" />
-        <option value="$PROJECT_DIR$/serverHopOnCMU/src/main/java/pt/shared/ServerAndClientGeneral/response/SignUpResponse.java" />
-        <option value="$PROJECT_DIR$/clientDummyTest/src/main/java/pt/client/mobileClientDummy/handlers/HelloClientHandlerImpl.java" />
-        <option value="$PROJECT_DIR$/serverHopOnCMU/src/main/java/pt/shared/ServerAndClientGeneral/response/HelloResponse.java" />
+        <option value="$PROJECT_DIR$/serverHopOnCMU/src/main/java/pt/shared/ServerAndClientGeneral/response/ListTourResponse.java" />
+        <option value="$PROJECT_DIR$/serverHopOnCMU/src/main/java/pt/shared/ServerAndClientGeneral/response/Response.java" />
+        <option value="$PROJECT_DIR$/serverHopOnCMU/src/main/java/pt/shared/ServerAndClientGeneral/command/Command.java" />
+        <option value="$PROJECT_DIR$/serverHopOnCMU/src/main/java/pt/shared/ServerAndClientGeneral/command/DownloadQuizQuestionsCommand.java" />
+        <option value="$PROJECT_DIR$/serverHopOnCMU/src/main/java/pt/server/ulisboa/tecnico/cmu/server/handlers/HelloCommandHandler.java" />
+        <option value="$PROJECT_DIR$/serverHopOnCMU/src/main/java/pt/shared/ServerAndClientGeneral/command/CommandHandler.java" />
+        <option value="$PROJECT_DIR$/serverHopOnCMU/src/main/java/pt/shared/ServerAndClientGeneral/command/ReadQuizResultsCommand.java" />
+        <option value="$PROJECT_DIR$/serverHopOnCMU/src/main/java/pt/shared/ServerAndClientGeneral/command/PostQuizAnswersForMonumentCommand.java" />
+        <option value="$PROJECT_DIR$/serverHopOnCMU/src/main/java/pt/shared/ServerAndClientGeneral/command/LogOutCommand.java" />
+        <option value="$PROJECT_DIR$/serverHopOnCMU/src/main/java/pt/shared/ServerAndClientGeneral/command/LoginCommand.java" />
+        <option value="$PROJECT_DIR$/serverHopOnCMU/src/main/java/pt/shared/ServerAndClientGeneral/command/ListTourLocationsCommand.java" />
+        <option value="$PROJECT_DIR$/clientDummyTest/src/main/java/pt/client/mobileClientDummy/exceptions/FailedToConnectToServer.java" />
+        <option value="$PROJECT_DIR$/serverHopOnCMU/src/main/java/pt/shared/ServerAndClientGeneral/Account.java" />
+        <option value="$PROJECT_DIR$/serverHopOnCMU/src/main/java/pt/shared/ServerAndClientGeneral/util/RSAKeyHandling.java" />
+        <option value="$PROJECT_DIR$/serverHopOnCMU/src/main/java/pt/shared/ServerAndClientGeneral/command/SignUpCommand.java" />
+        <option value="$PROJECT_DIR$/serverHopOnCMU/src/main/java/pt/shared/ServerAndClientGeneral/command/HelloCommand.java" />
+        <option value="$PROJECT_DIR$/serverHopOnCMU/src/main/java/pt/server/ulisboa/tecnico/cmu/server/handlers/SignUpCommandHandler.java" />
+        <option value="$PROJECT_DIR$/serverHopOnCMU/src/main/java/pt/server/ulisboa/tecnico/cmu/server/CommandHandlerImpl.java" />
+        <option value="$PROJECT_DIR$/clientDummyTest/src/main/java/pt/client/mobileClientDummy/ClientApplication.java" />
+        <option value="$PROJECT_DIR$/clientDummyTest/src/main/java/pt/client/mobileClientDummy/Client.java" />
+        <option value="$PROJECT_DIR$/clientDummyTest/src/main/java/pt/client/mobileClientDummy/ResponseHandlerImpl.java" />
       </list>
     </option>
   </component>
@@ -289,9 +266,22 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="AndroidView" />
-      <pane id="PackagesPane" />
-      <pane id="Scratches" />
+      <pane id="AndroidView">
+        <subPane>
+          <expand>
+            <path>
+              <item name="server" type="1abcf292:AndroidViewProjectNode" />
+              <item name="cmu" type="1039202d:NonAndroidModuleNode" />
+            </path>
+            <path>
+              <item name="server" type="1abcf292:AndroidViewProjectNode" />
+              <item name="cmu" type="1039202d:NonAndroidModuleNode" />
+              <item name="java" type="b5c1fe26:NonAndroidSourceTypeNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -348,6 +338,16 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="mobileClientDummy" type="462c0819:PsiDirectoryNode" />
+              <item name="exceptions" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="server" type="b2602c69:ProjectViewProjectNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+              <item name="clientDummyTest" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="mobileClientDummy" type="462c0819:PsiDirectoryNode" />
               <item name="handlers" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -378,6 +378,12 @@
               <item name="server" type="b2602c69:ProjectViewProjectNode" />
               <item name="server" type="462c0819:PsiDirectoryNode" />
               <item name="serverHopOnCMU" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="server" type="b2602c69:ProjectViewProjectNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+              <item name="serverHopOnCMU" type="462c0819:PsiDirectoryNode" />
+              <item name="keys" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="server" type="b2602c69:ProjectViewProjectNode" />
@@ -471,7 +477,30 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="pt" type="462c0819:PsiDirectoryNode" />
               <item name="ServerAndClientGeneral" type="462c0819:PsiDirectoryNode" />
+              <item name="Exceptions" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="server" type="b2602c69:ProjectViewProjectNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+              <item name="serverHopOnCMU" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="pt" type="462c0819:PsiDirectoryNode" />
+              <item name="ServerAndClientGeneral" type="462c0819:PsiDirectoryNode" />
               <item name="response" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="server" type="b2602c69:ProjectViewProjectNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+              <item name="serverHopOnCMU" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="pt" type="462c0819:PsiDirectoryNode" />
+              <item name="ServerAndClientGeneral" type="462c0819:PsiDirectoryNode" />
+              <item name="response" type="462c0819:PsiDirectoryNode" />
+              <item name="Error" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="server" type="b2602c69:ProjectViewProjectNode" />
@@ -512,6 +541,8 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -520,14 +551,15 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$USER_HOME$/HDSCoin" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/clientAndServerSharedPackages/src/main/java" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
   </component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="pt.client.mobileClientDummy.exceptions" />
+      <recent name="pt.shared.ServerAndClientGeneral.response.Error" />
       <recent name="pt.server.ulisboa.tecnico.cmu.server.ServerExceptions" />
       <recent name="pt.shared" />
       <recent name="pt.sec.mobileClientDummy" />
-      <recent name="pt.sec.mobileClientDummy.handlers" />
-      <recent name="pt.ulisboa.tecnico.cmu.ServerAndClientGeneral.util" />
     </key>
     <key name="CreateClassDialog.RecentsKey">
       <recent name="pt.client.mobileClientDummy" />
@@ -657,12 +689,17 @@
       <workItem from="1522981447560" duration="35000" />
       <workItem from="1523021362502" duration="179000" />
       <workItem from="1523022668748" duration="29332000" />
-      <workItem from="1523109942178" duration="9120000" />
+      <workItem from="1523109942178" duration="9416000" />
+      <workItem from="1523137795054" duration="1628000" />
+      <workItem from="1523146207026" duration="6297000" />
+      <workItem from="1523160204432" duration="17096000" />
+      <workItem from="1523288752630" duration="20799000" />
+      <workItem from="1523327048452" duration="11482000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="82728000" />
+    <option name="totallyTimeSpent" value="140326000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="309" y="38" width="1372" height="746" extended-state="6" />
@@ -680,7 +717,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21888727" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15885799" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -708,20 +745,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/pt/ulisboa/tecnico/cmu/response/ErrorResponse.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/pt/ulisboa/tecnico/cmu/command/LoginCommand.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/pt/ulisboa/tecnico/cmu/command/LogOutCommand.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/pt/ulisboa/tecnico/cmu/response/LogInResponse.java" />
-    <entry file="file://$PROJECT_DIR$/src/test/java/pt/ulisboa/tecnico/TestUnitServer.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/pt/ulisboa/tecnico/cmu/response/LogOutResponse.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/pt/ulisboa/tecnico/cmu/server/InvalidLoginException.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/pt/ulisboa/tecnico/cmu/response/Response.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/pt/ulisboa/tecnico/cmu/command/CommandHandler.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/pt/ulisboa/tecnico/cmu/command/Command.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/pt/ulisboa/tecnico/cmu/server/CommandHandlerImpl.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/pt/ulisboa/tecnico/cmu/command/DownloadQuizQuestionsCommand.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/pt/ulisboa/tecnico/cmu/server/Server.java" />
-    <entry file="file://$PROJECT_DIR$/testClient/pom.xml" />
     <entry file="file://$PROJECT_DIR$/testClient/src/test/java/pt/sec/mobileClientDummy/TestClientIT.java" />
     <entry file="file://$PROJECT_DIR$/testClient/src/main/java/pt/sec/mobileClientDummy/ClientApplication.java" />
     <entry file="file://$PROJECT_DIR$/server/pom.xml" />
@@ -737,17 +760,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="54" lean-forward="false" selection-start-line="2" selection-start-column="54" selection-end-line="2" selection-end-column="54" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/serverHopOnCMU/src/main/java/pt/shared/ServerAndClientGeneral/command/Command.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="44" lean-forward="false" selection-start-line="15" selection-start-column="44" selection-end-line="15" selection-end-column="44" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -759,106 +771,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/serverHopOnCMU/src/main/java/pt/shared/ServerAndClientGeneral/command/CommandHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="1" lean-forward="false" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/serverHopOnCMU/src/test/java/pt/ulisboa/tecnico/TestUnitServer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="552">
-          <caret line="72" column="10" lean-forward="false" selection-start-line="72" selection-start-column="10" selection-end-line="72" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/serverHopOnCMU/src/main/java/pt/server/ulisboa/tecnico/cmu/server/Account.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="22" lean-forward="false" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/serverHopOnCMU/src/main/java/pt/server/ulisboa/tecnico/cmu/server/SignatureHandling.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/serverHopOnCMU/src/main/java/pt/server/ulisboa/tecnico/cmu/server/ServerExceptions/InvalidLoginException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="17" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/clientDummyTest/src/main/java/pt/client/mobileClientDummy/FailedToConnectToServer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/serverHopOnCMU/src/main/java/pt/server/ulisboa/tecnico/cmu/server/SignatureHandling.java" />
     <entry file="file://$PROJECT_DIR$/clientDummyTest/src/test/java/pt/client/mobileClientDummy/TestClientIT.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/clientDummyTest/src/main/java/pt/client/mobileClientDummy/ClientApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="150" column="5" lean-forward="false" selection-start-line="150" selection-start-column="5" selection-end-line="150" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/clientDummyTest/src/main/java/pt/client/mobileClientDummy/Client.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="64" column="45" lean-forward="false" selection-start-line="64" selection-start-column="23" selection-end-line="64" selection-end-column="45" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/serverHopOnCMU/src/main/java/pt/server/ulisboa/tecnico/cmu/server/Persistence.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="27" lean-forward="false" selection-start-line="8" selection-start-column="27" selection-end-line="8" selection-end-column="27" />
-          <folding>
-            <element signature="e#2332#2349#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/serverHopOnCMU/src/main/java/pt/shared/ServerAndClientGeneral/util/RSAKeyHandling.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-485">
-          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/serverHopOnCMU/src/main/java/pt/server/ulisboa/tecnico/cmu/server/Server.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="453">
-          <caret line="74" column="13" lean-forward="false" selection-start-line="74" selection-start-column="13" selection-end-line="74" selection-end-column="13" />
           <folding />
         </state>
       </provider>
@@ -871,143 +788,365 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/serverHopOnCMU/src/main/java/pt/shared/ServerAndClientGeneral/command/HelloCommand.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="37" lean-forward="false" selection-start-line="8" selection-start-column="37" selection-end-line="8" selection-end-column="37" />
-          <folding>
-            <element signature="e#409#410#0" expanded="true" />
-            <element signature="e#452#453#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/serverHopOnCMU/src/main/java/pt/server/ulisboa/tecnico/cmu/server/handlers/HelloCommandHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="30" lean-forward="false" selection-start-line="8" selection-start-column="30" selection-end-line="8" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/serverHopOnCMU/src/main/java/pt/server/ulisboa/tecnico/cmu/server/CommandHandlerImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1241">
-          <caret line="88" column="39" lean-forward="false" selection-start-line="88" selection-start-column="39" selection-end-line="88" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/serverHopOnCMU/src/main/java/pt/shared/ServerAndClientGeneral/response/ResponseHandler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
           <caret line="3" column="4" lean-forward="false" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/serverHopOnCMU/src/main/java/pt/server/ulisboa/tecnico/cmu/server/Account.java" />
+    <entry file="file://$PROJECT_DIR$/serverHopOnCMU/src/main/java/pt/server/ulisboa/tecnico/cmu/server/ServerExceptions/InvalidSignupException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="34" lean-forward="false" selection-start-line="3" selection-start-column="34" selection-end-line="3" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/serverHopOnCMU/src/main/java/pt/shared/ServerAndClientGeneral/Exceptions/SessionIdException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="18" lean-forward="true" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="31" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/serverHopOnCMU/src/main/java/pt/shared/ServerAndClientGeneral/response/Response.java">
+    <entry file="file://$PROJECT_DIR$/serverHopOnCMU/src/main/java/pt/shared/ServerAndClientGeneral/util/SignatureHandling.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="36" column="24" lean-forward="false" selection-start-line="36" selection-start-column="20" selection-end-line="36" selection-end-column="24" />
+        <state relative-caret-position="68">
+          <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/rt.jar!/java/lang/Object.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/serverHopOnCMU/src/main/java/pt/server/ulisboa/tecnico/cmu/server/ServerExceptions/InvalidLoginException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="4" lean-forward="true" selection-start-line="4" selection-start-column="4" selection-end-line="6" selection-end-column="5" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#169#170#0" expanded="false" />
+            <element signature="e#199#200#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/serverHopOnCMU/src/main/java/pt/server/ulisboa/tecnico/cmu/server/ServerExceptions/AccountNotFoundException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="35" lean-forward="false" selection-start-line="3" selection-start-column="35" selection-end-line="3" selection-end-column="35" />
+          <folding>
+            <element signature="e#174#175#0" expanded="false" />
+            <element signature="e#204#205#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/serverHopOnCMU/src/main/java/pt/server/ulisboa/tecnico/cmu/server/Persistence.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="80" column="15" lean-forward="true" selection-start-line="80" selection-start-column="15" selection-end-line="80" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/serverHopOnCMU/src/main/java/pt/shared/ServerAndClientGeneral/response/Error/ErrorResponse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="40" lean-forward="true" selection-start-line="8" selection-start-column="40" selection-end-line="8" selection-end-column="40" />
+          <folding>
+            <element signature="e#730#731#0" expanded="false" />
+            <element signature="e#760#761#0" expanded="false" />
+            <element signature="e#820#821#0" expanded="false" />
+            <element signature="e#851#852#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/serverHopOnCMU/src/main/java/pt/shared/ServerAndClientGeneral/response/DownloadQuizQuestionsResponse.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="13" column="14" lean-forward="false" selection-start-line="13" selection-start-column="14" selection-end-line="13" selection-end-column="14" />
-          <folding>
-            <element signature="e#381#382#0" expanded="true" />
-            <element signature="e#403#404#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="170">
+          <caret line="10" column="72" lean-forward="true" selection-start-line="10" selection-start-column="41" selection-end-line="10" selection-end-column="72" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/serverHopOnCMU/src/main/java/pt/shared/ServerAndClientGeneral/response/ErrorResponse.java">
+    <entry file="file://$PROJECT_DIR$/serverHopOnCMU/src/main/java/pt/shared/ServerAndClientGeneral/response/LogOutResponse.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="21" column="14" lean-forward="false" selection-start-line="21" selection-start-column="14" selection-end-line="21" selection-end-column="14" />
+        <state relative-caret-position="306">
+          <caret line="18" column="22" lean-forward="false" selection-start-line="18" selection-start-column="22" selection-end-line="18" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/serverHopOnCMU/src/main/java/pt/shared/ServerAndClientGeneral/response/LogInResponse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="73" lean-forward="true" selection-start-line="11" selection-start-column="42" selection-end-line="11" selection-end-column="73" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/serverHopOnCMU/src/main/java/pt/shared/ServerAndClientGeneral/response/PostQuizAnswersForOneMonumentResponse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="8" lean-forward="false" selection-start-line="17" selection-start-column="8" selection-end-line="17" selection-end-column="8" />
           <folding>
-            <element signature="e#490#491#0" expanded="true" />
-            <element signature="e#512#513#0" expanded="true" />
+            <element signature="e#536#537#0" expanded="true" />
+            <element signature="e#567#568#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/serverHopOnCMU/src/main/java/pt/shared/ServerAndClientGeneral/response/ListTourResponse.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="13" column="14" lean-forward="false" selection-start-line="13" selection-start-column="14" selection-end-line="13" selection-end-column="14" />
-          <folding>
-            <element signature="e#340#341#0" expanded="true" />
-            <element signature="e#362#363#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/serverHopOnCMU/src/main/java/pt/shared/ServerAndClientGeneral/response/LogInResponse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="24" column="14" lean-forward="false" selection-start-line="24" selection-start-column="14" selection-end-line="24" selection-end-column="14" />
-          <folding>
-            <element signature="e#566#567#0" expanded="true" />
-            <element signature="e#588#589#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/serverHopOnCMU/src/main/java/pt/shared/ServerAndClientGeneral/response/LogOutResponse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="14" lean-forward="false" selection-start-line="14" selection-start-column="14" selection-end-line="14" selection-end-column="14" />
-          <folding>
-            <element signature="e#351#352#0" expanded="true" />
-            <element signature="e#373#374#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/serverHopOnCMU/src/main/java/pt/shared/ServerAndClientGeneral/response/PostQuizAnswersForOneMonumentResponse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="13" column="14" lean-forward="false" selection-start-line="13" selection-start-column="14" selection-end-line="13" selection-end-column="14" />
-          <folding>
-            <element signature="e#389#390#0" expanded="true" />
-            <element signature="e#411#412#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="272">
+          <caret line="17" column="22" lean-forward="false" selection-start-line="17" selection-start-column="22" selection-end-line="17" selection-end-column="22" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/serverHopOnCMU/src/main/java/pt/shared/ServerAndClientGeneral/response/ReadQuizResultsResponse.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="13" column="14" lean-forward="false" selection-start-line="13" selection-start-column="14" selection-end-line="13" selection-end-column="14" />
+        <state relative-caret-position="170">
+          <caret line="10" column="35" lean-forward="true" selection-start-line="10" selection-start-column="35" selection-end-line="10" selection-end-column="66" />
           <folding>
-            <element signature="e#361#362#0" expanded="true" />
-            <element signature="e#383#384#0" expanded="true" />
+            <element signature="e#494#495#0" expanded="false" />
+            <element signature="e#525#526#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/serverHopOnCMU/src/main/java/pt/shared/ServerAndClientGeneral/response/SignUpResponse.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="13" column="14" lean-forward="false" selection-start-line="13" selection-start-column="14" selection-end-line="13" selection-end-column="14" />
+        <state relative-caret-position="306">
+          <caret line="18" column="22" lean-forward="false" selection-start-line="18" selection-start-column="22" selection-end-line="18" selection-end-column="22" />
           <folding>
-            <element signature="e#334#335#0" expanded="true" />
-            <element signature="e#356#357#0" expanded="true" />
+            <element signature="e#459#460#0" expanded="false" />
+            <element signature="e#490#491#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/serverHopOnCMU/src/main/java/pt/shared/ServerAndClientGeneral/response/HelloResponse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="33" column="27" lean-forward="true" selection-start-line="33" selection-start-column="27" selection-end-line="33" selection-end-column="27" />
+          <folding>
+            <element signature="e#783#784#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/serverHopOnCMU/src/main/java/pt/shared/ServerAndClientGeneral/command/CommandHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="4" lean-forward="false" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/serverHopOnCMU/src/main/java/pt/shared/ServerAndClientGeneral/command/LoginCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="21" column="71" lean-forward="false" selection-start-line="21" selection-start-column="71" selection-end-line="21" selection-end-column="71" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/serverHopOnCMU/src/main/java/pt/shared/ServerAndClientGeneral/command/DownloadQuizQuestionsCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="21" column="87" lean-forward="true" selection-start-line="21" selection-start-column="56" selection-end-line="21" selection-end-column="87" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#684#685#0" expanded="true" />
+            <element signature="e#723#724#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/serverHopOnCMU/src/main/java/pt/shared/ServerAndClientGeneral/command/LogOutCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="18" column="23" lean-forward="false" selection-start-line="18" selection-start-column="23" selection-end-line="18" selection-end-column="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/serverHopOnCMU/src/main/java/pt/shared/ServerAndClientGeneral/command/PostQuizAnswersForMonumentCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="22" column="23" lean-forward="false" selection-start-line="22" selection-start-column="23" selection-end-line="22" selection-end-column="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/serverHopOnCMU/src/main/java/pt/shared/ServerAndClientGeneral/command/ReadQuizResultsCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="22" column="23" lean-forward="false" selection-start-line="22" selection-start-column="23" selection-end-line="22" selection-end-column="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/serverHopOnCMU/src/test/java/pt/ulisboa/tecnico/TestUnitServer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="382">
+          <caret line="50" column="9" lean-forward="false" selection-start-line="50" selection-start-column="9" selection-end-line="50" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/clientDummyTest/src/main/java/pt/client/mobileClientDummy/exceptions/FailedToConnectToServer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/serverHopOnCMU/src/main/java/pt/shared/ServerAndClientGeneral/command/ListTourLocationsCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="22" column="23" lean-forward="false" selection-start-line="22" selection-start-column="23" selection-end-line="22" selection-end-column="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/serverHopOnCMU/src/main/java/pt/shared/ServerAndClientGeneral/Account.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="178">
+          <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding>
+            <element signature="e#1074#1075#0" expanded="false" />
+            <element signature="e#1106#1107#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/serverHopOnCMU/src/main/java/pt/server/ulisboa/tecnico/cmu/server/handlers/HelloCommandHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/serverHopOnCMU/src/main/java/pt/shared/ServerAndClientGeneral/command/HelloCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="19" column="96" lean-forward="false" selection-start-line="19" selection-start-column="96" selection-end-line="19" selection-end-column="96" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/serverHopOnCMU/src/main/java/pt/shared/ServerAndClientGeneral/command/SignUpCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="263">
+          <caret line="25" column="5" lean-forward="true" selection-start-line="25" selection-start-column="5" selection-end-line="25" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#645#646#0" expanded="true" />
+            <element signature="e#675#676#0" expanded="true" />
+            <element signature="e#739#740#0" expanded="true" />
+            <element signature="e#778#779#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/serverHopOnCMU/src/main/java/pt/shared/ServerAndClientGeneral/util/RSAKeyHandling.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="236">
+          <caret line="62" column="39" lean-forward="false" selection-start-line="62" selection-start-column="39" selection-end-line="62" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/serverHopOnCMU/src/main/java/pt/server/ulisboa/tecnico/cmu/server/CommandHandlerImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1879">
+          <caret line="23" column="51" lean-forward="false" selection-start-line="23" selection-start-column="51" selection-end-line="23" selection-end-column="51" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/clientDummyTest/src/main/java/pt/client/mobileClientDummy/Client.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="178">
+          <caret line="42" column="0" lean-forward="true" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/serverHopOnCMU/src/main/java/pt/shared/ServerAndClientGeneral/command/Command.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="35" column="29" lean-forward="false" selection-start-line="35" selection-start-column="21" selection-end-line="35" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/serverHopOnCMU/src/main/java/pt/shared/ServerAndClientGeneral/response/Response.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1139">
+          <caret line="67" column="31" lean-forward="false" selection-start-line="67" selection-start-column="25" selection-end-line="67" selection-end-column="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/serverHopOnCMU/src/main/java/pt/server/ulisboa/tecnico/cmu/server/handlers/SignUpCommandHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="48" lean-forward="false" selection-start-line="3" selection-start-column="48" selection-end-line="3" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/serverHopOnCMU/src/main/java/pt/server/ulisboa/tecnico/cmu/server/Server.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="23" column="10" lean-forward="false" selection-start-line="23" selection-start-column="10" selection-end-line="23" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/clientDummyTest/src/main/java/pt/client/mobileClientDummy/ClientApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="433">
+          <caret line="195" column="5" lean-forward="false" selection-start-line="195" selection-start-column="5" selection-end-line="195" selection-end-column="5" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/clientDummyTest/src/main/java/pt/client/mobileClientDummy/ResponseHandlerImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="11" lean-forward="false" selection-start-line="6" selection-start-column="11" selection-end-line="6" selection-end-column="11" />
+        <state relative-caret-position="195">
+          <caret line="26" column="34" lean-forward="true" selection-start-line="26" selection-start-column="34" selection-end-line="26" selection-end-column="34" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1016,24 +1155,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/clientDummyTest/src/main/java/pt/client/mobileClientDummy/handlers/HelloClientHandlerImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
+        <state relative-caret-position="119">
           <caret line="8" column="27" lean-forward="false" selection-start-line="8" selection-start-column="27" selection-end-line="8" selection-end-column="27" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/serverHopOnCMU/src/main/java/pt/shared/ServerAndClientGeneral/response/HelloResponse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="15" lean-forward="false" selection-start-line="17" selection-start-column="15" selection-end-line="17" selection-end-column="15" />
-          <folding>
-            <element signature="e#336#337#0" expanded="true" />
-            <element signature="e#367#368#0" expanded="true" />
-            <element signature="e#399#400#0" expanded="true" />
-            <element signature="e#434#435#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>

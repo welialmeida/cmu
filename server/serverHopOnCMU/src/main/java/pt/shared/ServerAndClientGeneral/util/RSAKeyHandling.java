@@ -60,7 +60,7 @@ public class RSAKeyHandling {
         return encoded;
     }
 
-    public static PublicKey getPuvKey(String filename) throws GeneralSecurityException, IOException {
+    public static PublicKey getPubKey(String filename) throws GeneralSecurityException, IOException {
         byte[] keyBytes = RSAKeyHandling.readEncodedKey("./keys/"+filename+"-pub.gen");
 
         X509EncodedKeySpec spec = new X509EncodedKeySpec(keyBytes);
