@@ -4,27 +4,25 @@ import pt.shared.ServerAndClientGeneral.Exceptions.NonceErrorException;
 import pt.shared.ServerAndClientGeneral.Exceptions.SecException;
 import pt.shared.ServerAndClientGeneral.response.Response;
 import pt.shared.ServerAndClientGeneral.response.ResponseHandler;
+import pt.shared.ServerAndClientGeneral.util.SignatureHandling;
 
-import java.security.PublicKey;
 import java.util.ArrayList;
 import java.util.List;
 
 public abstract class ResponseHandlerImpl implements ResponseHandler {
-    private static List<Double> nonceListReceive = new ArrayList();
+
+    private static List<Double> nonceListsReceived = new ArrayList();
 
     public void handle(Response response) {
 
-        double nonce = (double) response.getArgument("nonce");
-        PublicKey pubK = (PublicKey) response.getArgument("pubK");
-
         try {
-            verifyNonce(nonce);
+            verifyNonce(response);
         } catch (NonceErrorException e) {
             e.printStackTrace();
         }
 
         try {
-            verifySignature(pubK);
+            verifySignature(response);
         } catch (SecException e) {
             e.printStackTrace();
         }
@@ -32,15 +30,17 @@ public abstract class ResponseHandlerImpl implements ResponseHandler {
         return;
     }
 
-    //TODO - nonce
-    private void verifyNonce(double nonce) throws NonceErrorException{
+    private void verifyNonce(Response rsp) throws NonceErrorException {
         //verify with nonceLists
-
-
+        double nonce = rsp.getNonce();
+        if(nonceListsReceived.contains(nonce)) {
+            throw new NonceErrorException("nonce check failed");
+        } else {
+            nonceListsReceived.add(nonce);
+        }
     }
 
-    //TODO - signature
-    private void verifySignature(PublicKey serverPubK) throws SecException{
-
+    private void verifySignature(Response rsp) throws SecException {
+        SignatureHandling.checkSignature(rsp.getSignature(), rsp.getPubK(), rsp.argsToList());
     }
 }

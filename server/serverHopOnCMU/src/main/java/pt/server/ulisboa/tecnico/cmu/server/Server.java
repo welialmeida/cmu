@@ -6,7 +6,6 @@ import java.io.ObjectOutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.security.GeneralSecurityException;
-import java.util.TreeMap;
 
 import pt.server.ulisboa.tecnico.cmu.server.ServerExceptions.InvalidSignupException;
 import pt.server.ulisboa.tecnico.cmu.server.handlers.HelloCommandHandler;
@@ -78,9 +77,8 @@ public class Server {
         }
     }
 
-    private static CommandHandler handlerFinder(Command command) throws GeneralSecurityException, IOException, MethodNotFoundException, InvalidSignupException {
-
-        System.out.println("Received: " + command.getMessage());
+    private static CommandHandler handlerFinder(Command command) throws GeneralSecurityException, IOException,
+            MethodNotFoundException, InvalidSignupException {
 
         switch (command.getId()) {
             case "HelloCommand":

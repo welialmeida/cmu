@@ -11,9 +11,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
-import java.security.GeneralSecurityException;
-import java.security.PrivateKey;
-import java.security.PublicKey;
+import java.security.*;
 import java.util.TreeMap;
 
 public class Client {
@@ -25,8 +23,18 @@ public class Client {
     PublicKey pubK;
     PrivateKey privKey;
     String serverPubKFilename = "server";
+    private static String secureRandAlgorithm = "SHA1PRNG";
+    private static SecureRandom random;
 
     public Client(Socket server, String pubKFilename) {
+        if(random == null) {
+            try {
+                random = SecureRandom.getInstance(secureRandAlgorithm);
+            } catch (NoSuchAlgorithmException e) {
+                e.printStackTrace();
+            }
+        }
+
         try {
             setKeysWithFileName(pubKFilename);
             this.serverPubK = RSAKeyHandling.getPubKey(serverPubKFilename);
@@ -72,29 +80,25 @@ public class Client {
     public void ping(String msg) {
         TreeMap<String, Object> argsMap = new TreeMap<>();
         argsMap.put("return", msg);
-        Command cmd = new HelloCommand(msg, argsMap, this.privKey, this.pubK);
+        Command cmd = new HelloCommand(argsMap, this.privKey, this.pubK, this.random);
         Response rsp = null;
         try {
             rsp = start(cmd);
             tries = 0;
-        } catch (FailedToConnectToServer failedToConnectToServer) {
-            failedToConnectToServer.printStackTrace();
-            if(tries != 3 || !isServerUp) {
+        } catch (FailedToConnectToServer e) {
+            e.printStackTrace();
+            if(tries < 3 || !isServerUp) {
+                try {
+                    Thread.sleep(6000);
+                } catch (InterruptedException e1) {
+                    e1.printStackTrace();
+                }
                 ping(msg);
                 tries++;
             }
         }
         rsp.handle(new HelloClientHandlerImpl());
         return;
-    }
-
-    private void reconnect() {
-        try {
-            Thread.sleep(6000);
-            isServerUp = true;
-        } catch (InterruptedException e) {
-            System.exit(1);
-        }
     }
 
     private void setKeysWithFileName(String fileName) {

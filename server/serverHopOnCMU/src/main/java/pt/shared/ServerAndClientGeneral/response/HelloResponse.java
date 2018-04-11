@@ -1,33 +1,24 @@
 package pt.shared.ServerAndClientGeneral.response;
 
+import java.security.PrivateKey;
+import java.security.PublicKey;
+import java.security.SecureRandom;
 import java.util.TreeMap;
 
 public class HelloResponse extends Response {
 
     private static final long serialVersionUID = 734457624276534179L;
-    private String message;
-    private String Id = "HelloResponse";
+    private static String Id = "HelloResponse";
 
-    public HelloResponse(TreeMap<String, Object> argsMap) {
-        super(argsMap);
-        this.message = "ping accepted"+"\n";
+    public HelloResponse(TreeMap<String, Object> argsMap, PrivateKey privKey,
+                         PublicKey pubK, SecureRandom random) {
+
+        super(argsMap, privKey, pubK, random);
     }
 
     @Override
     public void handle(ResponseHandler rh) {
         rh.handle(this);
-    }
-
-    public String toString() {
-        return getMessage();
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
-    }
-
-    public String getMessage() {
-        return this.message;
     }
 
     @Override

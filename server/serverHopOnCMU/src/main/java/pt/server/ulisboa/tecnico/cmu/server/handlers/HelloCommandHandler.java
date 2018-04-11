@@ -1,6 +1,7 @@
 package pt.server.ulisboa.tecnico.cmu.server.handlers;
 
 import pt.shared.ServerAndClientGeneral.command.Command;
+import pt.shared.ServerAndClientGeneral.command.HelloCommand;
 import pt.shared.ServerAndClientGeneral.response.HelloResponse;
 import pt.shared.ServerAndClientGeneral.response.Response;
 import pt.server.ulisboa.tecnico.cmu.server.CommandHandlerImpl;
@@ -15,14 +16,16 @@ public class HelloCommandHandler extends CommandHandlerImpl {
         super();
     }
 
-    public Response handle(Command cmd){
+    public Response handle(Command cmd) {
         Response superRes = super.handle(cmd);
         if(superRes != null) {
             return superRes;
         }
 
-        System.out.println(cmd.getMessage());
+        System.out.println(((HelloCommand)cmd).getReturn());
         TreeMap<String, Object> argsMap = new TreeMap();
-        return new HelloResponse(argsMap);
+        String msg = (String) cmd.getReturn();
+        argsMap.put("return", msg);
+        return new HelloResponse(argsMap, getPrivKey(), getPubKey(), getRandom());
     }
 }

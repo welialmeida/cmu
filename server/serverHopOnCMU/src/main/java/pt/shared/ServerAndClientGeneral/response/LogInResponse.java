@@ -1,26 +1,19 @@
 package pt.shared.ServerAndClientGeneral.response;
 
+import java.security.PrivateKey;
+import java.security.PublicKey;
+import java.security.SecureRandom;
 import java.util.TreeMap;
 
 public class LogInResponse extends Response {
 
     private static final long serialVersionUID = 734457624276534179L;
-    private String message;
-    private double uniqueId;
-    private String Id = "LogInResponse";
+    private static String Id = "LogInResponse";
 
-    public LogInResponse(double uniqueId, TreeMap<String, Object> argsMap) {
-        super(argsMap);
-        this.message = "LogIn success";
-        this.uniqueId = uniqueId;
-    }
+    public LogInResponse(TreeMap<String, Object> argsMap, double sessionId, PrivateKey privKey,
+                         PublicKey pubK, SecureRandom random) {
 
-    public double getUniqueId() {
-        return this.uniqueId;
-    }
-
-    public String getMessage() {
-        return this.message;
+        super(argsMap, sessionId, privKey, pubK, random);
     }
 
     @Override

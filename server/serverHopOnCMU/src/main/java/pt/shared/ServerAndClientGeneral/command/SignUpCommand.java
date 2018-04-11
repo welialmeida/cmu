@@ -4,6 +4,9 @@ import pt.shared.ServerAndClientGeneral.Exceptions.NonceErrorException;
 import pt.shared.ServerAndClientGeneral.Exceptions.SecException;
 import pt.shared.ServerAndClientGeneral.response.Response;
 
+import java.security.PrivateKey;
+import java.security.PublicKey;
+import java.security.SecureRandom;
 import java.util.TreeMap;
 
 /**
@@ -13,16 +16,18 @@ import java.util.TreeMap;
 public class SignUpCommand extends Command {
 
     private static final long serialVersionUID = -8807331723807741905L;
-    private String message = "signUp";
-    private String Id = "SignUpCommand";
+    private static String message = "signUp";
+    private static String Id = "SignUpCommand";
 
     @Override
     public String getId() {
         return Id;
     }
 
-    public SignUpCommand(TreeMap<String, Object> argsMap) {
-        super(argsMap);
+    public SignUpCommand(TreeMap<String, Object> argsMap, double sessionId, PrivateKey privKey,
+                         PublicKey pubK, SecureRandom random) {
+
+        super(argsMap, sessionId, privKey, pubK, random);
     }
 
     @Override
@@ -41,5 +46,4 @@ public class SignUpCommand extends Command {
     public String getBusTicket() {
         return (String) getArgument("busTicketCode");
     }
-
 }

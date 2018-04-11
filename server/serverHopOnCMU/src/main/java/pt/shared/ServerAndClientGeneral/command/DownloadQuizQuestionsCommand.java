@@ -2,6 +2,9 @@ package pt.shared.ServerAndClientGeneral.command;
 
 import pt.shared.ServerAndClientGeneral.response.Response;
 
+import java.security.PrivateKey;
+import java.security.PublicKey;
+import java.security.SecureRandom;
 import java.util.TreeMap;
 
 /**
@@ -11,26 +14,22 @@ import java.util.TreeMap;
 public class DownloadQuizQuestionsCommand extends Command {
 
     private static final long serialVersionUID = -8807331723807741905L;
-    private String message;
-    private String Id = "DownloadQuizQuestionsCommand";
+    private static String Id = "DownloadQuizQuestionsCommand";
 
     @Override
     public String getId() {
         return Id;
     }
 
-    public DownloadQuizQuestionsCommand(String message, TreeMap<String, Object> argsMap) {
-        super(argsMap);
-        this.message = message;
+    public DownloadQuizQuestionsCommand(TreeMap<String, Object> argsMap, double sessionId, PrivateKey privKey,
+                                        PublicKey pubK, SecureRandom random) {
+
+        super(argsMap, sessionId, privKey, pubK, random);
     }
 
     @Override
     public Response handle(CommandHandler chi) {
         return chi.handle(this);
-    }
-
-    public String getMessage() {
-        return this.message;
     }
 
 }

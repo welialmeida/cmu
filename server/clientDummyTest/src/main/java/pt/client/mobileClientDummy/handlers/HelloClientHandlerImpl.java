@@ -7,5 +7,6 @@ public class HelloClientHandlerImpl extends ResponseHandlerImpl {
     public void handle(Response rsp) {
         super.handle(rsp);
         System.out.println();
+        System.out.println(rsp);
     }
 }

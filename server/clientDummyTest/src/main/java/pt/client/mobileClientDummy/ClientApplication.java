@@ -1,8 +1,6 @@
 package pt.client.mobileClientDummy;
 
-import pt.shared.ServerAndClientGeneral.Exceptions.SecException;
 import pt.shared.ServerAndClientGeneral.util.RSAKeyHandling;
-import pt.shared.ServerAndClientGeneral.util.SignatureHandling;
 
 import java.io.IOException;
 import java.net.Socket;

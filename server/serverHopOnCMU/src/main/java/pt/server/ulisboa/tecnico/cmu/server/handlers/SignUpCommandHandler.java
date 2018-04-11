@@ -26,7 +26,7 @@ public class SignUpCommandHandler extends CommandHandlerImpl {
         }
         String username = ((SignUpCommand)cmd).getUsername();
         String busTicketCode = ((SignUpCommand)cmd).getBusTicket();
-        PublicKey pubK = (PublicKey) cmd.getArgument("pubK");
+        PublicKey pubK = cmd.getPubK();
 
         Account account = new Account(username, busTicketCode, pubK);
         List<Account> accList = super.getSignUpList();
@@ -34,12 +34,16 @@ public class SignUpCommandHandler extends CommandHandlerImpl {
 
         for (Account acc : accList) {
             if(acc.getUsername().equals(account.getUsername()) || acc.getBusTicketCode().equals(account.getBusTicketCode())) {
-                return new ErrorResponse(argsMap, "account username of busTicketCode already exist");
+                String msg = "account username of busTicketCode already exist";
+                argsMap.put("return", msg);
+                return new ErrorResponse(argsMap, getPrivKey(), getPubKey(), getRandom());
             }
         }
 
         super.addUsernameAndTicketCodeToPersistentStorage(username, busTicketCode, pubK);
 
-        return new ErrorResponse(argsMap, "nothing returned in SignUp");
+        String msg = "nothing returned in SignUp";
+        argsMap.put("return", msg);
+        return new ErrorResponse(argsMap, getPrivKey(), getPubKey(), getRandom());
     }
 }

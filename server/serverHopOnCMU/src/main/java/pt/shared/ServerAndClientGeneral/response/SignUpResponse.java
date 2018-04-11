@@ -1,26 +1,25 @@
 package pt.shared.ServerAndClientGeneral.response;
 
+import java.security.PrivateKey;
+import java.security.PublicKey;
+import java.security.SecureRandom;
 import java.util.TreeMap;
 
 public class SignUpResponse extends Response {
 
     private static final long serialVersionUID = 734457624276534179L;
-    private String message;
-    private String Id = "SignUpResponse";
+    private static String Id = "SignUpResponse";
 
 
-    public SignUpResponse(TreeMap<String, Object> argsMap) {
-        super(argsMap);
-        this.message = "SignUp Success";
+    public SignUpResponse(TreeMap<String, Object> argsMap, double sessionId, PrivateKey privKey,
+                          PublicKey pubK, SecureRandom random) {
+
+        super(argsMap, sessionId, privKey, pubK, random);
     }
 
     @Override
     public void handle(ResponseHandler ch) {
         ch.handle(this);
-    }
-
-    public String getMessage() {
-        return this.message;
     }
 
     @Override

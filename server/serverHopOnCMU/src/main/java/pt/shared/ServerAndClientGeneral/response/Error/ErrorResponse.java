@@ -3,25 +3,20 @@ package pt.shared.ServerAndClientGeneral.response.Error;
 import pt.shared.ServerAndClientGeneral.response.Response;
 import pt.shared.ServerAndClientGeneral.response.ResponseHandler;
 
+import java.security.PrivateKey;
+import java.security.PublicKey;
+import java.security.SecureRandom;
 import java.util.TreeMap;
 
 public class ErrorResponse extends Response {
 
     private static final long serialVersionUID = 734457624276534179L;
-    private String message;
-    private String Id = "ErrorResponse";
+    private static String Id = "ErrorResponse";
 
-    public ErrorResponse(TreeMap<String, Object> argsMap, String message) {
-        super(argsMap);
-        this.message = message;
-    }
+    public ErrorResponse(TreeMap<String, Object> argsMap, PrivateKey privKey,
+                         PublicKey pubK, SecureRandom random) {
 
-    public void setMessage(String message) {
-        this.message = message;
-    }
-
-    public String getMessage() {
-        return this.message;
+        super(argsMap, privKey, pubK, random);
     }
 
     @Override

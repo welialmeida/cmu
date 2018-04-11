@@ -11,55 +11,69 @@ import pt.shared.ServerAndClientGeneral.util.RSAKeyHandling;
 import pt.shared.ServerAndClientGeneral.Exceptions.SessionIdException;
 import pt.shared.ServerAndClientGeneral.command.Command;
 import pt.shared.ServerAndClientGeneral.command.CommandHandler;
+import pt.shared.ServerAndClientGeneral.util.SignatureHandling;
 
 import java.io.IOException;
-import java.security.GeneralSecurityException;
-import java.security.PrivateKey;
-import java.security.PublicKey;
-import java.security.SecureRandom;
+import java.security.*;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.TreeMap;
 
 public abstract class CommandHandlerImpl implements CommandHandler {
 
-    //TODO session Ids are SecureRandom Doubles - login
-    //TODO nonces are SecureRandom Doubles - nonce
-    // TODO client generates key when he sends signUpCommand
-
-    private static TreeMap<PublicKey, Double> nonceListsReceived; // nonceList of used nonces for each unique session id
-    private static TreeMap<Double, PublicKey> idMap; // unique session ids for login
-    private static TreeMap<String, Double> signInMap; // unique name as key, sessionId as value
-    private static List<Account> signUpList; // cache
-    private PrivateKey privKey;
-    private PublicKey pubKey;
-    private String keyFilename = "server";
-    private SecureRandom random;
-    private String secureRandAlgorithm = "SHA1PRNG";
+    private static TreeMap<PublicKey, List<Double>> nonceListsReceived = new TreeMap<>(new Comparator<PublicKey>() {
+        public int compare(PublicKey pub1, PublicKey pub2) {
+            return pub1.toString().compareTo(pub2.toString());
+        }
+    });
+    private static TreeMap<String, Double> signInMap = new TreeMap<>(); // unique name as key, sessionId as value
+    private static List<Account> signUpList = new ArrayList<>(); // cache
+    private static PrivateKey privKey;
+    private static PublicKey pubKey;
+    private static String keyFilename = "server";
+    private static String secureRandAlgorithm = "SHA1PRNG";
+    private static SecureRandom random;
 
     public CommandHandlerImpl() throws GeneralSecurityException, IOException {
-        nonceListsReceived = new TreeMap<>();
-        signInMap = new TreeMap<>();
-        idMap = new TreeMap<>();
-        signUpList = new ArrayList<>();
-        privKey = RSAKeyHandling.getPrivKey(keyFilename);
-        pubKey = RSAKeyHandling.getPubKey(keyFilename);
-        random = SecureRandom.getInstance(secureRandAlgorithm);
+        if(random == null) {
+            random = SecureRandom.getInstance(secureRandAlgorithm);
+        }
+        if(privKey == null) {
+            privKey = RSAKeyHandling.getPrivKey(keyFilename);
+        }
+        if(pubKey == null) {
+            pubKey = RSAKeyHandling.getPubKey(keyFilename);
+        }
     }
 
+    //TODO - login
     private String generateSessionId() {
         return null;
     }
 
-    //TODO - nonce
-    private void verifyNonce(PublicKey pubK, double nonce) throws NonceErrorException{
+    private void verifyNonce(Command cmd) throws NonceErrorException {
         //verify with nonceLists
+        PublicKey pubK = cmd.getPubK();
+        double nonce = cmd.getNonce();
 
+        if(nonceListsReceived.containsKey(pubK)) {
+            List<Double> receivedNonceList = nonceListsReceived.get(pubK);
+            if(receivedNonceList.contains(nonce)) {
+                throw new NonceErrorException("failed nonce check");
+            } else {
+                receivedNonceList.add(nonce);
+                nonceListsReceived.replace(pubK, receivedNonceList);
+            }
+        } else {
+            List<Double> recvNonceList = new ArrayList<>();
+            recvNonceList.add(nonce);
+            nonceListsReceived.put(pubK, recvNonceList);
+        }
     }
 
-    //TODO - signature
-    private void verifySignature(PublicKey pubK) throws SecException{
-
+    private void verifySignature(Command cmd) throws SecException {
+        SignatureHandling.checkSignature(cmd.getSignature(), cmd.getPubK(), cmd.argsToList());
     }
 
     public Account getPersistentItem(String busTicketCode) throws AccountNotFoundException {
@@ -93,12 +107,10 @@ public abstract class CommandHandlerImpl implements CommandHandler {
         }
     }
 
+    //TODO - login
     private double genSessionId() throws SessionIdException {
-        double newSeed = random.nextDouble();
-        if (idMap.containsKey(newSeed)) {
-            throw new SessionIdException("sessionId had already been assigned on session Id creation");
-        }
-        return newSeed;
+        //double newSeed = random.nextDouble();
+        return 0.0;
     }
 
     public List<Account> getSignUpList() {
@@ -137,25 +149,39 @@ public abstract class CommandHandlerImpl implements CommandHandler {
     @Override
     public Response handle(Command command) {
 
-        double nonce = (double) command.getArgument("nonce");
-        PublicKey pubK = (PublicKey) command.getArgument("pubK");
         TreeMap<String, Object> argsMap = new TreeMap<>();
 
         try {
-            verifyNonce(pubK, nonce);
+            verifyNonce(command);
         } catch (NonceErrorException e) {
             e.printStackTrace();
-            return new ErrorResponse(argsMap, "nonce check failed");
+            String msg = "nonce check failed";
+            argsMap.put("return", msg);
+            return new ErrorResponse(argsMap, getPrivKey(), getPubKey(), getRandom());
         }
 
         try {
-            verifySignature(pubK);
+            verifySignature(command);
         } catch (SecException e) {
             e.printStackTrace();
-            return new ErrorResponse(argsMap, "signature check failure");
+            String msg = "signature check failure";
+            argsMap.put("return", msg);
+            return new ErrorResponse(argsMap, getPrivKey(), getPubKey(), getRandom());
         }
 
         return null;
+    }
+
+    public PrivateKey getPrivKey() {
+        return privKey;
+    }
+
+    public PublicKey getPubKey() {
+        return pubKey;
+    }
+
+    public static SecureRandom getRandom() {
+        return random;
     }
 
     public static void addToSessionIds(String busTicketCode, double sessionId) {
