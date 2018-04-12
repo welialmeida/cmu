@@ -12,6 +12,7 @@ import java.util.List;
 public abstract class ResponseHandlerImpl implements ResponseHandler {
 
     private static List<Double> nonceListsReceived = new ArrayList();
+    private static Double sessionId;
 
     public void handle(Response response) {
 
@@ -42,5 +43,13 @@ public abstract class ResponseHandlerImpl implements ResponseHandler {
 
     private void verifySignature(Response rsp) throws SecException {
         SignatureHandling.checkSignature(rsp.getSignature(), rsp.getPubK(), rsp.argsToList());
+    }
+
+    public void setSessionId(double sessionId) {
+        this.sessionId = sessionId;
+    }
+
+    public double getSessionId() {
+        return sessionId;
     }
 }

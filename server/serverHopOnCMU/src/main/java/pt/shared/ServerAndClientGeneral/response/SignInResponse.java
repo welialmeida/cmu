@@ -5,13 +5,13 @@ import java.security.PublicKey;
 import java.security.SecureRandom;
 import java.util.TreeMap;
 
-public class LogInResponse extends Response {
+public class SignInResponse extends Response {
 
     private static final long serialVersionUID = 734457624276534179L;
-    private static String Id = "LogInResponse";
+    private static String Id = "SignInResponse";
 
-    public LogInResponse(TreeMap<String, Object> argsMap, double sessionId, PrivateKey privKey,
-                         PublicKey pubK, SecureRandom random) {
+    public SignInResponse(TreeMap<String, Object> argsMap, double sessionId, PrivateKey privKey,
+                          PublicKey pubK, SecureRandom random) {
 
         super(argsMap, sessionId, privKey, pubK, random);
     }
@@ -19,6 +19,10 @@ public class LogInResponse extends Response {
     @Override
     public String getId() {
         return this.Id;
+    }
+
+    public double getSessionId() {
+        return ((Double) getArgument("sessionId"));
     }
 
     @Override

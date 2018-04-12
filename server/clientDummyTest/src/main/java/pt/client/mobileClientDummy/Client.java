@@ -2,9 +2,11 @@ package pt.client.mobileClientDummy;
 
 import pt.client.mobileClientDummy.exceptions.FailedToConnectToServer;
 import pt.client.mobileClientDummy.handlers.HelloClientHandlerImpl;
+import pt.client.mobileClientDummy.handlers.SignInClientHandler;
 import pt.client.mobileClientDummy.handlers.SignUpClientHandler;
 import pt.shared.ServerAndClientGeneral.command.Command;
 import pt.shared.ServerAndClientGeneral.command.HelloCommand;
+import pt.shared.ServerAndClientGeneral.command.SignInCommand;
 import pt.shared.ServerAndClientGeneral.command.SignUpCommand;
 import pt.shared.ServerAndClientGeneral.response.Response;
 import pt.shared.ServerAndClientGeneral.util.RSAKeyHandling;
@@ -126,6 +128,27 @@ public class Client {
             e.printStackTrace();
         }
         rsp.handle(new SignUpClientHandler());
+        return;
+    }
+
+    public void signIn(String username, String busTicketCode, String pubKFilename) {
+        setKeysWithFileName(pubKFilename);
+
+        TreeMap<String, Object> argsMap = new TreeMap<>();
+        TreeMap<String, String> ret = new TreeMap<>();
+        ret.put("username", username);
+        ret.put("busTicketCode", busTicketCode);
+        argsMap.put("return", ret);
+
+        Command cmd = new SignInCommand(argsMap, this.privKey, this.pubK, this.random);
+        Response rsp = null;
+        try {
+            rsp = start(cmd);
+            tries = 0;
+        } catch (FailedToConnectToServer e) {
+            e.printStackTrace();
+        }
+        rsp.handle(new SignInClientHandler());
         return;
     }
 

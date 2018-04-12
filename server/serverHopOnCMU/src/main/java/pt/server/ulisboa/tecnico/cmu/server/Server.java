@@ -9,6 +9,7 @@ import java.security.GeneralSecurityException;
 
 import pt.server.ulisboa.tecnico.cmu.server.ServerExceptions.InvalidSignupException;
 import pt.server.ulisboa.tecnico.cmu.server.handlers.HelloCommandHandler;
+import pt.server.ulisboa.tecnico.cmu.server.handlers.SignInCommandHandler;
 import pt.server.ulisboa.tecnico.cmu.server.handlers.SignUpCommandHandler;
 import pt.shared.ServerAndClientGeneral.Exceptions.MethodNotFoundException;
 import pt.shared.ServerAndClientGeneral.command.CommandHandler;
@@ -86,27 +87,14 @@ public class Server {
                 return new HelloCommandHandler();
             case "SignUpCommand":
                 return new SignUpCommandHandler();
-
-            /*
-            case "LoginCommand":
-                Username = (String) argsMap.get("Username");
-                busTicketCode = (String) argsMap.get("busTicketCode");
-                double sessionId;
-                try {
-                    sessionId = loginHandle(Username, busTicketCode);
-                    return new LogInResponse(sessionId);
-                } catch (InvalidLoginException e) {
-                    e.printStackTrace();
-                    return new ErrorResponse(e.getMessage());
-                } catch (SessionIdException e) {
-                    e.printStackTrace();
-                    return new ErrorResponse(e.getMessage());
-                }
-            case "LogOutCommand":
+            case "SignInCommand":
+                return new SignInCommandHandler();
+                /*
+            case "SignOutCommand":
                 Username = (String) argsMap.get("Username");
                 try {
                     logOutHandle(Username);
-                    return new LogOutResponse();
+                    return new SignOutResponse();
                 } catch (InvalidLoginException e) {
                     e.printStackTrace();
                     return new ErrorResponse(e.getMessage());

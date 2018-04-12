@@ -5,13 +5,13 @@ import java.security.PublicKey;
 import java.security.SecureRandom;
 import java.util.TreeMap;
 
-public class LogOutResponse extends Response {
+public class SignOutResponse extends Response {
 
     private static final long serialVersionUID = 734457624276534179L;
-    private static String Id = "LogOutResponse";
+    private static String Id = "SignOutResponse";
 
-    public LogOutResponse(TreeMap<String, Object> argsMap, double sessionId, PrivateKey privKey,
-                          PublicKey pubK, SecureRandom random) {
+    public SignOutResponse(TreeMap<String, Object> argsMap, double sessionId, PrivateKey privKey,
+                           PublicKey pubK, SecureRandom random) {
 
         super(argsMap, sessionId, privKey, pubK, random);
     }

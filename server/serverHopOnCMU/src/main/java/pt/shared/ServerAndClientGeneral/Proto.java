@@ -68,7 +68,7 @@ public abstract class Proto implements Serializable {
 
     private void setSessionId(double sessionId) {
         this.sessionId = sessionId;
-        addToArgs("sessionID", sessionId);
+        addToArgs("sessionId", sessionId);
     }
 
     private double getSessionId() {

@@ -19,9 +19,12 @@ public class Persistence {
 
         String username = account.getUsername();
         String busTicketCode = account.getBusTicketCode();
+        Double sessId = account.getSessionId();
+        account.setSessionId(null); //session id always stored null
         FileOutputStream fos = new FileOutputStream("./Accounts/"+ calculateMD5(username) + "-" +
                 calculateMD5(busTicketCode) + ".cli");
         ObjectOutputStream os = new ObjectOutputStream(fos);
+        account.setSessionId(sessId);
         os.writeObject(account);
         os.close();
         fos.close();

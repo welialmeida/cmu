@@ -8,11 +8,13 @@ public class Account implements Serializable {
     private String username;
     private String busTicketCode;
     private PublicKey pubK;
+    private Double sessionId; // if null not logged in, logged in otherwise
 
     public Account(String username, String busTicketCode, PublicKey pubK) {
         this.username = username;
         this.busTicketCode = busTicketCode;
         this.pubK = pubK;
+        sessionId = null;
     }
 
     public boolean equals(Object obj) {
@@ -41,5 +43,13 @@ public class Account implements Serializable {
 
     public PublicKey getPubK() {
         return this.pubK;
+    }
+
+    public void setSessionId(Double sessionId) {
+        this.sessionId = sessionId;
+    }
+
+    public Double getSessionId() {
+        return sessionId;
     }
 }

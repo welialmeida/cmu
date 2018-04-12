@@ -75,11 +75,11 @@ public class ClientApplication {
                         break;
                     case 3:
                         System.out.println("signIn");
-                        System.out.println("Usage:<source key-filename>space<destination key-filename>space<balance(integer)>");
+                        System.out.println("Usage:<username>space<busTicketCode>space<publicKey>");
                         keyboard = new Scanner(System.in);
                         line = keyboard.nextLine();
                         data = line.split(" ");
-                        //signIn(data[0], data[1], Integer.parseInt(data[2]));
+                        signIn(data[0], data[1], data[2]);
                         break;
                     case 4:
                         System.out.println("list tour locations");
@@ -156,8 +156,9 @@ public class ClientApplication {
         client.signUp(datum, datum1, datum2);
     }
 
-    public static void signIn() {
-        return;
+    public static void signIn(String username, String busTicketCode, String pubKFilename) {
+        checkServer();
+        client.signIn(username, busTicketCode, pubKFilename);
     }
 
     public static void listTourLocations() {

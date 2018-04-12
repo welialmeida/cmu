@@ -2,9 +2,12 @@ package pt.server.ulisboa.tecnico.cmu.server;
 
 import pt.server.ulisboa.tecnico.cmu.server.ServerExceptions.AccountNotFoundException;
 import pt.server.ulisboa.tecnico.cmu.server.ServerExceptions.InvalidLoginException;
+import pt.server.ulisboa.tecnico.cmu.server.ServerExceptions.PublicKeyNotFoundException;
+import pt.server.ulisboa.tecnico.cmu.server.ServerExceptions.WrongSessionIdException;
 import pt.shared.ServerAndClientGeneral.Account;
 import pt.shared.ServerAndClientGeneral.Exceptions.NonceErrorException;
 import pt.shared.ServerAndClientGeneral.Exceptions.SecException;
+import pt.shared.ServerAndClientGeneral.command.SignInCommand;
 import pt.shared.ServerAndClientGeneral.response.Error.ErrorResponse;
 import pt.shared.ServerAndClientGeneral.response.Response;
 import pt.shared.ServerAndClientGeneral.util.RSAKeyHandling;
@@ -27,8 +30,8 @@ public abstract class CommandHandlerImpl implements CommandHandler {
             return pub1.toString().compareTo(pub2.toString());
         }
     });
-    private static TreeMap<String, Double> signInMap = new TreeMap<>(); // unique name as key, sessionId as value
-    private static List<Account> signUpList = new ArrayList<>(); // cache
+
+    private static List<Account> cacheAccountList = new ArrayList<>(); // cache
     private static PrivateKey privKey;
     private static PublicKey pubKey;
     private static String keyFilename = "server";
@@ -45,11 +48,6 @@ public abstract class CommandHandlerImpl implements CommandHandler {
         if(pubKey == null) {
             pubKey = RSAKeyHandling.getPubKey(keyFilename);
         }
-    }
-
-    //TODO - login
-    private String generateSessionId() {
-        return null;
     }
 
     private void verifyNonce(Command cmd) throws NonceErrorException {
@@ -80,27 +78,28 @@ public abstract class CommandHandlerImpl implements CommandHandler {
     public Account getPersistentItem(String username, String busTicketCode) throws AccountNotFoundException {
         // get Persistent Items into signUpMap
         Account acc = null;
-        for(Account account : signUpList) {
+        for(Account account : cacheAccountList) {
             if(account.getUsername().equals(username) && account.getBusTicketCode().equals(busTicketCode)) {
                 return account;
             }
         }
         try {
-            acc = Persistence.read(username, busTicketCode);
-            signUpList.add(acc);
-            return acc;
+            if(Persistence.exists(username, busTicketCode)) {
+                acc = Persistence.read(username, busTicketCode);
+                cacheAccountList.add(acc);
+                return acc;
+            }
         } catch (IOException e) {
             e.printStackTrace();
-            throw new AccountNotFoundException("account not found");
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
-            throw new AccountNotFoundException("class account not found");
         }
+        throw new AccountNotFoundException("account not found");
     }
 
     public void addUsernameAndTicketCodeToPersistentStorage(String username, String busTicketCode, PublicKey pubK) {
         Account acc = new Account(username, busTicketCode, pubK);
-        this.signUpList.add(acc);
+        this.cacheAccountList.add(acc);
         try {
             Persistence.store(acc);
         } catch (IOException e) {
@@ -108,43 +107,8 @@ public abstract class CommandHandlerImpl implements CommandHandler {
         }
     }
 
-    //TODO - login
-    private double genSessionId() throws SessionIdException {
-        //double newSeed = random.nextDouble();
-        return 0.0;
-    }
-
-    public List<Account> getSignUpList() {
-        return this.signUpList;
-    }
-
-    //TODO - login
-    private double loginHandle(Account acc) throws InvalidLoginException, SessionIdException {
-        // busTicketCode is password
-        double sessionId;
-        String username;
-        String busTicketCode;
-        if (signUpList.contains(acc)) {
-            username = acc.getUsername();
-            busTicketCode = acc.getBusTicketCode();
-            sessionId = genSessionId();
-            if (signInMap.containsKey(username)) {
-                throw new InvalidLoginException("Username already logged in");
-            } else {
-                signInMap.put(username, sessionId);
-            }
-            return sessionId;
-        } else {
-            throw new InvalidLoginException("invalid Login, no username of ticket code found");
-        }
-    }
-
-    private void logOutHandle(String Username) throws InvalidLoginException {
-        if (signInMap.containsKey(Username)) {
-            signInMap.remove(Username);
-        } else {
-            throw new InvalidLoginException("Impossible to LogOut of session");
-        }
+    public List<Account> getcacheAccountList() {
+        return this.cacheAccountList;
     }
 
     @Override
@@ -186,11 +150,53 @@ public abstract class CommandHandlerImpl implements CommandHandler {
         return random;
     }
 
-    public static void addToSessionIds(String busTicketCode, double sessionId) {
-        signInMap.put(busTicketCode, sessionId);
+    public Account getAndCheckAccount(Command cmd, String username, String busTicketCode)
+            throws IOException, ClassNotFoundException, AccountNotFoundException, PublicKeyNotFoundException {
+
+        // check if account exists in server and checks if public key in server is the same as the used publicKey
+
+        PublicKey pubK = cmd.getPubK();
+        String msg;
+        Account databaseAccount;
+
+        //  check locally
+        for (Account acc : cacheAccountList) {
+            if(acc.getUsername().equals(username) && acc.getBusTicketCode().equals(busTicketCode)) {
+                if(acc.getPubK().toString().equals(pubK.toString())) {
+                    return acc;
+                } else {
+                    msg = "pubK not found in server";
+                    throw new PublicKeyNotFoundException(msg);
+                }
+            }
+        }
+
+        if(!Persistence.exists(username, busTicketCode)) {
+            msg = "account non existing";
+            throw new AccountNotFoundException(msg);
+        } else {
+            databaseAccount = Persistence.read(username, busTicketCode);
+            cacheAccountList.add(databaseAccount);
+            if(!databaseAccount.getPubK().toString().equals(pubK.toString())) {
+                msg = "pubK not found in server Account";
+                throw new PublicKeyNotFoundException(msg);
+            }
+        }
+        return databaseAccount;
     }
 
-    public static double getSessionId(String busTicketCode) {
-        return signInMap.get(busTicketCode);
+    public Account getAndCheckAccount(Command cmd, String username, String busTicketCode, Double sessionId)
+            throws IOException, ClassNotFoundException, AccountNotFoundException, PublicKeyNotFoundException,
+            WrongSessionIdException {
+
+        // check if account exists in server and checks if public key in server is the same as the used publicKey
+
+        Account databaseAcc = getAndCheckAccount(cmd, username, busTicketCode);
+        if(!databaseAcc.getSessionId().equals(sessionId)) {
+            throw new WrongSessionIdException("sessionId does not match currently used sessionID");
+        }
+
+        return databaseAcc;
     }
+
 }

@@ -7,20 +7,28 @@ import java.security.PublicKey;
 import java.security.SecureRandom;
 import java.util.TreeMap;
 
-public class LogOutCommand extends Command {
+public class SignInCommand extends Command {
 
     private static final long serialVersionUID = -8807331723807741905L;
-    private static String Id = "LogOutCommand";
+    private static String Id = "SignInCommand";
 
     @Override
     public String getId() {
         return Id;
     }
 
-    public LogOutCommand(TreeMap<String, Object> argsMap, double sessionId, PrivateKey privKey,
+    public SignInCommand(TreeMap<String, Object> argsMap, PrivateKey privKey,
                          PublicKey pubK, SecureRandom random) {
 
-        super(argsMap, sessionId, privKey, pubK, random);
+        super(argsMap, privKey, pubK, random);
+    }
+
+    public String getUsername() {
+        return ((TreeMap<String, String>) getArgument("return")).get("username");
+    }
+
+    public String getBusTicket() {
+        return ((TreeMap<String, String>) getArgument("return")).get("busTicketCode");
     }
 
     @Override
