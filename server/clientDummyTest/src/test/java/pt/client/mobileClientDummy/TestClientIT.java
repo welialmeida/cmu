@@ -21,6 +21,7 @@ public class TestClientIT {
     static Client client;
     private static Socket server;
 
+    //TODO check proto class equals
     /*
     @BeforeClass
     public static void beforeClass() {

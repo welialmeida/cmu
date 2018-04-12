@@ -66,9 +66,10 @@ public class Server {
                 e.printStackTrace();
             } catch (GeneralSecurityException e) {
                 e.printStackTrace();
+            } catch (InvalidSignupException e) {
+                e.printStackTrace();
             } catch (MethodNotFoundException e) {
                 e.printStackTrace();
-                continue;
             } catch (ClassNotFoundException e) {
                 e.printStackTrace();
             } catch (Exception e) {

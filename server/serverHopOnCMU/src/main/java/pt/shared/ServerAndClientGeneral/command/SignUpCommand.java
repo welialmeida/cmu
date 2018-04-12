@@ -1,7 +1,5 @@
 package pt.shared.ServerAndClientGeneral.command;
 
-import pt.shared.ServerAndClientGeneral.Exceptions.NonceErrorException;
-import pt.shared.ServerAndClientGeneral.Exceptions.SecException;
 import pt.shared.ServerAndClientGeneral.response.Response;
 
 import java.security.PrivateKey;
@@ -24,10 +22,10 @@ public class SignUpCommand extends Command {
         return Id;
     }
 
-    public SignUpCommand(TreeMap<String, Object> argsMap, double sessionId, PrivateKey privKey,
+    public SignUpCommand(TreeMap<String, Object> argsMap, PrivateKey privKey,
                          PublicKey pubK, SecureRandom random) {
 
-        super(argsMap, sessionId, privKey, pubK, random);
+        super(argsMap, privKey, pubK, random);
     }
 
     @Override
@@ -40,10 +38,10 @@ public class SignUpCommand extends Command {
     }
 
     public String getUsername() {
-        return (String) getArgument("username");
+        return ((TreeMap<String, String>) getArgument("return")).get("username");
     }
 
     public String getBusTicket() {
-        return (String) getArgument("busTicketCode");
+        return ((TreeMap<String, String>) getArgument("return")).get("busTicketCode");
     }
 }

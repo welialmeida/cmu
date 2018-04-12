@@ -1,8 +1,9 @@
 package pt.shared.ServerAndClientGeneral;
 
+import java.io.Serializable;
 import java.security.PublicKey;
 
-public class Account {
+public class Account implements Serializable {
 
     private String username;
     private String busTicketCode;

@@ -11,20 +11,13 @@ public class ClientApplication {
     private static PublicKey serverPubKey;
     private static List<Double> receivingNonceList = new ArrayList();
     private static SecureRandom random;
-    static Socket server;
     static Client client;
 
     public static void main(String[] args) {
 
-        String pubKFilenameInUse = "client1";
         String serverIp = args[0];
         int serverPort = Integer.parseInt(args[1]);
-        try {
-            server = new Socket(serverIp, serverPort);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        client = new Client(server, pubKFilenameInUse);
+        client = new Client(serverIp, serverPort);
         
         try {
             serverPubKey = RSAKeyHandling.getPubKey("server");
@@ -74,11 +67,11 @@ public class ClientApplication {
                         break;
                     case 2:
                         System.out.println("signUp");
-                        System.out.println("Usage:<source key-filename>space<balance(integer)>");
+                        System.out.println("Usage:<username>space<busTicketCode>space<publicKey>");
                         keyboard = new Scanner(System.in);
                         line = keyboard.nextLine();
                         data = line.split(" ");
-                        //signUp(data[0], Integer.parseInt(data[1]));
+                        signUp(data[0], data[1], data[2]);
                         break;
                     case 3:
                         System.out.println("signIn");
@@ -119,10 +112,11 @@ public class ClientApplication {
                     case 8:
                         System.out.println("ping server");
                         System.out.println("write a message to be echoed back");
+                        System.out.println("Usage:<echoed back message>space<publicKey>");
                         keyboard = new Scanner(System.in);
                         line = keyboard.nextLine();
-                        //readResults(line);
-                        ping(line);
+                        data = line.split(" ");
+                        ping(data[0], data[1]);
                         break;
                     case 0:
                         System.out.println("Are you sure");
@@ -145,16 +139,21 @@ public class ClientApplication {
         }
     }
 
-    public static void ping(String message) {
+    private static void checkServer() {
         if (client == null) {
             System.out.println("Server is not available");
             return;
         }
-        client.ping(message);
     }
 
-    public static void signUp() {
-        return;
+    public static void ping(String message, String pubKFile) {
+        checkServer();
+        client.ping(message, pubKFile);
+    }
+
+    private static void signUp(String datum, String datum1, String datum2) {
+        checkServer();
+        client.signUp(datum, datum1, datum2);
     }
 
     public static void signIn() {

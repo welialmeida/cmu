@@ -45,7 +45,6 @@ public abstract class Proto implements Serializable {
         this.signature = genSignature(clientPrivKey);
     }
 
-
     public boolean equals(Object obj) {
         // checks if args are equal in both objects
 

@@ -57,6 +57,7 @@ public class TestUnitServer {
 
     }
 
+    //TODO check proto class equals
     @Test
     public void simpleHelloNonceAndSignatureWorkingTest() {
 

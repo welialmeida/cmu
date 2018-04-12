@@ -13,21 +13,24 @@ import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.io.IOUtils;
 import pt.shared.ServerAndClientGeneral.Account;
 
-//TODO change public Key key in map with bus ticket code - persistence
 public class Persistence {
 
-    public static void store(String busTicketCode, Account account) throws IOException {
+    public static void store(Account account) throws IOException {
 
-        FileOutputStream fos = new FileOutputStream("./Accounts/" + calculateMD5(busTicketCode) + ".cli");
+        String username = account.getUsername();
+        String busTicketCode = account.getBusTicketCode();
+        FileOutputStream fos = new FileOutputStream("./Accounts/"+ calculateMD5(username) + "-" +
+                calculateMD5(busTicketCode) + ".cli");
         ObjectOutputStream os = new ObjectOutputStream(fos);
         os.writeObject(account);
         os.close();
         fos.close();
     }
 
-    public static Account read(String busTicketCode) throws IOException, ClassNotFoundException {
+    public static Account read(String username, String busTicketCode) throws IOException, ClassNotFoundException {
 
-        FileInputStream fis = new FileInputStream("./Accounts/" + calculateMD5(busTicketCode) + ".cli");
+        FileInputStream fis = new FileInputStream("./Accounts/" + calculateMD5(username) + "-" +
+                calculateMD5(busTicketCode) + ".cli");
         ObjectInputStream ois = new ObjectInputStream(fis);
         Account account = (Account) ois.readObject();
         ois.close();
@@ -35,12 +38,12 @@ public class Persistence {
         return account;
     }
 
-    public static String calculateMD5(String busTicketCode) throws IOException {
+    public static String calculateMD5(String str) throws IOException {
 
         String filename = "./Accounts/temp.cli";
         FileOutputStream temp = new FileOutputStream(filename);
         ObjectOutputStream oos = new ObjectOutputStream(temp);
-        oos.writeObject(busTicketCode);
+        oos.writeObject(str);
 
         FileInputStream i = new FileInputStream(new File(filename));
         String md5 = DigestUtils.md5Hex(IOUtils.toByteArray(i));
@@ -49,20 +52,34 @@ public class Persistence {
         return md5;
     }
 
-    public static boolean exists(String busTicketCode) {
+    public static boolean exists(String username, String busTicketCode) {
+        // checks if there is an account with the username or the busTicketCode
 
         File files[];
         File dir = new File("./Accounts/");
         files = dir.listFiles();
 
         for (File file : files) {
-            try {
-                if (file.getName().equals(calculateMD5(busTicketCode) + ".cli")) {
-                    return true;
+            String name = file.getName();
+            if (name.equals("temp.cli")) {
+                continue;
+            }
 
-                }
+            String md5Username = null;
+            String md5BusTicketCode = null;
+            try {
+                md5Username = calculateMD5(username);
+                md5BusTicketCode = calculateMD5(busTicketCode);
             } catch (IOException e) {
-                return false;
+                e.printStackTrace();
+            }
+
+            String[] identifiers = name.split("-");
+            String userN = identifiers[0];
+            String busTicketCodeIdentifier = identifiers[1].replace(".cli", "");
+
+            if (userN.equals(md5Username) || busTicketCodeIdentifier.equals(md5BusTicketCode)) {
+                return true;
             }
         }
         return false;
@@ -105,12 +122,12 @@ public class Persistence {
         }
     }
 
-    public static void deleteAccount(String busTicketCode) throws IOException {
+    public static void deleteAccount(String username, String busTicketCode) throws IOException {
         File files[];
         File dir = new File("./Accounts/");
         files = dir.listFiles();
         for (File file : files) {
-            if (file.getName().equals(calculateMD5(busTicketCode) + ".cli")) {
+            if (file.getName().equals(calculateMD5(username) + "-" + calculateMD5(busTicketCode) + ".cli")) {
                 file.delete();
                 break;
             }

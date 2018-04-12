@@ -73,19 +73,20 @@ public abstract class CommandHandlerImpl implements CommandHandler {
     }
 
     private void verifySignature(Command cmd) throws SecException {
+
         SignatureHandling.checkSignature(cmd.getSignature(), cmd.getPubK(), cmd.argsToList());
     }
 
-    public Account getPersistentItem(String busTicketCode) throws AccountNotFoundException {
+    public Account getPersistentItem(String username, String busTicketCode) throws AccountNotFoundException {
         // get Persistent Items into signUpMap
         Account acc = null;
         for(Account account : signUpList) {
-            if(account.getBusTicketCode().equals(busTicketCode)) {
+            if(account.getUsername().equals(username) && account.getBusTicketCode().equals(busTicketCode)) {
                 return account;
             }
         }
         try {
-            acc = Persistence.read(busTicketCode);
+            acc = Persistence.read(username, busTicketCode);
             signUpList.add(acc);
             return acc;
         } catch (IOException e) {
@@ -101,7 +102,7 @@ public abstract class CommandHandlerImpl implements CommandHandler {
         Account acc = new Account(username, busTicketCode, pubK);
         this.signUpList.add(acc);
         try {
-            Persistence.store(busTicketCode, acc);
+            Persistence.store(acc);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -149,6 +150,7 @@ public abstract class CommandHandlerImpl implements CommandHandler {
     @Override
     public Response handle(Command command) {
 
+        System.out.println(command.getArguments());
         TreeMap<String, Object> argsMap = new TreeMap<>();
 
         try {

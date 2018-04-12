@@ -11,10 +11,10 @@ public class SignUpResponse extends Response {
     private static String Id = "SignUpResponse";
 
 
-    public SignUpResponse(TreeMap<String, Object> argsMap, double sessionId, PrivateKey privKey,
+    public SignUpResponse(TreeMap<String, Object> argsMap, PrivateKey privKey,
                           PublicKey pubK, SecureRandom random) {
 
-        super(argsMap, sessionId, privKey, pubK, random);
+        super(argsMap, privKey, pubK, random);
     }
 
     @Override

@@ -21,10 +21,10 @@ public class LoginCommand extends Command {
         return Id;
     }
 
-    public LoginCommand(TreeMap<String, Object> argsMap, double sessionId, PrivateKey privKey,
+    public LoginCommand(TreeMap<String, Object> argsMap, PrivateKey privKey,
                         PublicKey pubK, SecureRandom random) {
 
-        super(argsMap, sessionId, privKey, pubK, random);
+        super(argsMap, privKey, pubK, random);
     }
 
     @Override

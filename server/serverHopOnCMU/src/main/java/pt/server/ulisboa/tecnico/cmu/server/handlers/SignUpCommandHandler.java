@@ -1,16 +1,16 @@
 package pt.server.ulisboa.tecnico.cmu.server.handlers;
 
 import pt.server.ulisboa.tecnico.cmu.server.CommandHandlerImpl;
-import pt.shared.ServerAndClientGeneral.Account;
+import pt.server.ulisboa.tecnico.cmu.server.Persistence;
 import pt.shared.ServerAndClientGeneral.command.Command;
 import pt.shared.ServerAndClientGeneral.command.SignUpCommand;
 import pt.shared.ServerAndClientGeneral.response.Error.ErrorResponse;
 import pt.shared.ServerAndClientGeneral.response.Response;
+import pt.shared.ServerAndClientGeneral.response.SignUpResponse;
 
 import java.io.IOException;
 import java.security.GeneralSecurityException;
 import java.security.PublicKey;
-import java.util.List;
 import java.util.TreeMap;
 
 public class SignUpCommandHandler extends CommandHandlerImpl {
@@ -28,22 +28,18 @@ public class SignUpCommandHandler extends CommandHandlerImpl {
         String busTicketCode = ((SignUpCommand)cmd).getBusTicket();
         PublicKey pubK = cmd.getPubK();
 
-        Account account = new Account(username, busTicketCode, pubK);
-        List<Account> accList = super.getSignUpList();
         TreeMap<String, Object> argsMap = new TreeMap<>();
 
-        for (Account acc : accList) {
-            if(acc.getUsername().equals(account.getUsername()) || acc.getBusTicketCode().equals(account.getBusTicketCode())) {
-                String msg = "account username of busTicketCode already exist";
-                argsMap.put("return", msg);
-                return new ErrorResponse(argsMap, getPrivKey(), getPubKey(), getRandom());
-            }
+        if(Persistence.exists(username, busTicketCode)) {
+            String msg = "account username or busTicketCode already exist";
+            argsMap.put("return", msg);
+            return new ErrorResponse(argsMap, getPrivKey(), getPubKey(), getRandom());
         }
 
-        super.addUsernameAndTicketCodeToPersistentStorage(username, busTicketCode, pubK);
+        addUsernameAndTicketCodeToPersistentStorage(username, busTicketCode, pubK);
 
-        String msg = "nothing returned in SignUp";
+        String msg = "successful signUp";
         argsMap.put("return", msg);
-        return new ErrorResponse(argsMap, getPrivKey(), getPubKey(), getRandom());
+        return new SignUpResponse(argsMap, getPrivKey(), getPubKey(), getRandom());
     }
 }
