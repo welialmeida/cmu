@@ -14,7 +14,7 @@ public abstract class Command extends Proto {
 
     public abstract String getId();
 
-    public Command(TreeMap<String, Object> argsMap, double sessionId, PrivateKey clientPrivKey,
+    public Command(TreeMap<String, Object> argsMap, Double sessionId, PrivateKey clientPrivKey,
                    PublicKey pubK, SecureRandom random) {
         super(argsMap, sessionId, clientPrivKey, pubK, random);
     }

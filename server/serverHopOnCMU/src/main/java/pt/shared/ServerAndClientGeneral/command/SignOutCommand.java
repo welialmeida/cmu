@@ -17,10 +17,22 @@ public class SignOutCommand extends Command {
         return Id;
     }
 
-    public SignOutCommand(TreeMap<String, Object> argsMap, double sessionId, PrivateKey privKey,
+    public SignOutCommand(TreeMap<String, Object> argsMap, Double sessionId, PrivateKey privKey,
                           PublicKey pubK, SecureRandom random) {
 
         super(argsMap, sessionId, privKey, pubK, random);
+    }
+
+    public Double getSessionId() {
+        return ((Double) getArgument("sessionId"));
+    }
+
+    public String getUsername() {
+        return ((TreeMap<String, String>) getArgument("return")).get("username");
+    }
+
+    public String getBusTicket() {
+        return ((TreeMap<String, String>) getArgument("return")).get("busTicketCode");
     }
 
     @Override

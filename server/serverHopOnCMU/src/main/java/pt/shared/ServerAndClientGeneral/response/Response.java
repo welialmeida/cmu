@@ -13,7 +13,7 @@ public abstract class Response extends Proto {
 
     public abstract String getId();
 
-    public Response(TreeMap<String, Object> argsMap, double sessionId, PrivateKey serverPrivKey, PublicKey pubK,
+    public Response(TreeMap<String, Object> argsMap, Double sessionId, PrivateKey serverPrivKey, PublicKey pubK,
                     SecureRandom random) {
         super(argsMap, sessionId, serverPrivKey, pubK, random);
     }

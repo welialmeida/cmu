@@ -21,7 +21,7 @@ public class ReadQuizResultsCommand extends Command {
         return Id;
     }
 
-    public ReadQuizResultsCommand(TreeMap<String, Object> argsMap, double sessionId, PrivateKey privKey,
+    public ReadQuizResultsCommand(TreeMap<String, Object> argsMap, Double sessionId, PrivateKey privKey,
                                   PublicKey pubK, SecureRandom random) {
 
         super(argsMap, sessionId, privKey, pubK, random);

@@ -21,7 +21,7 @@ public class ListTourLocationsCommand extends Command {
         return Id;
     }
 
-    public ListTourLocationsCommand(TreeMap<String, Object> argsMap, double sessionId, PrivateKey privKey,
+    public ListTourLocationsCommand(TreeMap<String, Object> argsMap, Double sessionId, PrivateKey privKey,
                                     PublicKey pubK, SecureRandom random) {
 
         super(argsMap, sessionId, privKey, pubK, random);

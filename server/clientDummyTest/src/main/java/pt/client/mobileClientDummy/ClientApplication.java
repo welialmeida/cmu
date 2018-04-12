@@ -3,7 +3,6 @@ package pt.client.mobileClientDummy;
 import pt.shared.ServerAndClientGeneral.util.RSAKeyHandling;
 
 import java.io.IOException;
-import java.net.Socket;
 import java.security.*;
 import java.util.*;
 
@@ -51,7 +50,8 @@ public class ClientApplication {
             System.out.println("6-Post quiz answers for one monument");
             System.out.println("7-Read quiz results (number of correct answers and ranking");
             System.out.println("8-ping server");
-            System.out.println("0-SignOut\n");
+            System.out.println("9-signOut");
+            System.out.println("0-exit\n");
 
             try {
                 keyboard = new Scanner(System.in);
@@ -118,23 +118,27 @@ public class ClientApplication {
                         data = line.split(" ");
                         ping(data[0], data[1]);
                         break;
-                    case 0:
-                        System.out.println("Are you sure");
-                        System.out.println("y/n");
+                    case 9:
+                        System.out.println("signOut");
+                        System.out.println("Usage:<username>space<busTicketCode>space<publicKey>");
                         keyboard = new Scanner(System.in);
                         line = keyboard.nextLine();
-                        //logOut(line);
+                        data = line.split(" ");
+                        signOut(data[0], data[1], data[2]);
+                        break;
+                    case 0:
                         System.exit(0);
                         break;
                     default:
-                        System.out.println("Please write number from 1 to 6 or 0");
+                        System.out.println("Please write number from 1 to 9 or 0 to logOut");
                 }
             } catch (InputMismatchException | NumberFormatException e) {
                 e.printStackTrace();
-                System.out.println("*** Please write number from 1 to 6 or 0\nException: ");
+                System.out.println("*** Please write number from 1 to 9 or 0\nException: ");
             } catch (Exception e) {
                 e.printStackTrace();
                 System.out.println("Please  verify the format of the inputs!!!\n");
+                System.out.println("Please write number from 1 to 9 or 0 to logOut");
             }
         }
     }
@@ -151,7 +155,7 @@ public class ClientApplication {
         client.ping(message, pubKFile);
     }
 
-    private static void signUp(String datum, String datum1, String datum2) {
+    public static void signUp(String datum, String datum1, String datum2) {
         checkServer();
         client.signUp(datum, datum1, datum2);
     }
@@ -161,20 +165,9 @@ public class ClientApplication {
         client.signIn(username, busTicketCode, pubKFilename);
     }
 
-    public static void listTourLocations() {
-        return;
-    }
-
-    public static void downloadQuizLocations() {
-        return;
-    }
-
-    public static void postAnswers() {
-        return;
-    }
-
-    public static void readResults() {
-        return;
+    public static void signOut(String datum, String datum1, String datum2) {
+        checkServer();
+        client.signOut(datum, datum1, datum2);
     }
 
     public static void RSAKeyGenerator(String path) {

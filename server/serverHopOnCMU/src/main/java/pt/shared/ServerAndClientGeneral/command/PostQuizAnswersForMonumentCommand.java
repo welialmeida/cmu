@@ -21,7 +21,7 @@ public class PostQuizAnswersForMonumentCommand extends Command {
         return Id;
     }
 
-    public PostQuizAnswersForMonumentCommand(TreeMap<String, Object> argsMap, double sessionId, PrivateKey privKey,
+    public PostQuizAnswersForMonumentCommand(TreeMap<String, Object> argsMap, Double sessionId, PrivateKey privKey,
                                              PublicKey pubK, SecureRandom random) {
 
         super(argsMap, sessionId, privKey, pubK, random);

@@ -10,7 +10,7 @@ public class PostQuizAnswersForOneMonumentResponse extends Response {
     private static final long serialVersionUID = 734457624276534179L;
     private static String Id = "PostQuizAnswersForOneMonumentResponse";
 
-    public PostQuizAnswersForOneMonumentResponse(TreeMap<String, Object> argsMap, double sessionId, PrivateKey privKey,
+    public PostQuizAnswersForOneMonumentResponse(TreeMap<String, Object> argsMap, Double sessionId, PrivateKey privKey,
                                                  PublicKey pubK, SecureRandom random) {
 
         super(argsMap, sessionId, privKey, pubK, random);

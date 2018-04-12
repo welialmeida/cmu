@@ -10,7 +10,7 @@ public class ListTourResponse extends Response {
     private static final long serialVersionUID = 734457624276534179L;
     private static String Id = "ListTourResponse";
 
-    public ListTourResponse(TreeMap<String, Object> argsMap, double sessionId, PrivateKey privKey,
+    public ListTourResponse(TreeMap<String, Object> argsMap, Double sessionId, PrivateKey privKey,
                             PublicKey pubK, SecureRandom random) {
 
         super(argsMap, sessionId, privKey, pubK, random);

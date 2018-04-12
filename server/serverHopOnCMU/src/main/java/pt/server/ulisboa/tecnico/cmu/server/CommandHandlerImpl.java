@@ -1,17 +1,14 @@
 package pt.server.ulisboa.tecnico.cmu.server;
 
 import pt.server.ulisboa.tecnico.cmu.server.ServerExceptions.AccountNotFoundException;
-import pt.server.ulisboa.tecnico.cmu.server.ServerExceptions.InvalidLoginException;
 import pt.server.ulisboa.tecnico.cmu.server.ServerExceptions.PublicKeyNotFoundException;
 import pt.server.ulisboa.tecnico.cmu.server.ServerExceptions.WrongSessionIdException;
 import pt.shared.ServerAndClientGeneral.Account;
 import pt.shared.ServerAndClientGeneral.Exceptions.NonceErrorException;
 import pt.shared.ServerAndClientGeneral.Exceptions.SecException;
-import pt.shared.ServerAndClientGeneral.command.SignInCommand;
 import pt.shared.ServerAndClientGeneral.response.Error.ErrorResponse;
 import pt.shared.ServerAndClientGeneral.response.Response;
 import pt.shared.ServerAndClientGeneral.util.RSAKeyHandling;
-import pt.shared.ServerAndClientGeneral.Exceptions.SessionIdException;
 import pt.shared.ServerAndClientGeneral.command.Command;
 import pt.shared.ServerAndClientGeneral.command.CommandHandler;
 import pt.shared.ServerAndClientGeneral.util.SignatureHandling;
@@ -192,7 +189,7 @@ public abstract class CommandHandlerImpl implements CommandHandler {
         // check if account exists in server and checks if public key in server is the same as the used publicKey
 
         Account databaseAcc = getAndCheckAccount(cmd, username, busTicketCode);
-        if(!databaseAcc.getSessionId().equals(sessionId)) {
+        if(sessionId == null || !databaseAcc.getSessionId().equals(sessionId)) {
             throw new WrongSessionIdException("sessionId does not match currently used sessionID");
         }
 

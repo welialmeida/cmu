@@ -15,13 +15,13 @@ public abstract class Proto implements Serializable {
 
     private TreeMap<String, Object> argsMap;
     private byte[] signature;
-    private double nonce;
-    private double sessionId;
+    private double nonce; // no null nonce
+    private Double sessionId; // sessionId can be null
     private PublicKey pubK;
 
     public abstract String getId();
 
-    public Proto(TreeMap<String, Object> argsMap, double sessionId, PrivateKey clientPrivKey,
+    public Proto(TreeMap<String, Object> argsMap, Double sessionId, PrivateKey clientPrivKey,
                  PublicKey pubK, SecureRandom random) {
 
         this.argsMap = argsMap;
@@ -66,13 +66,13 @@ public abstract class Proto implements Serializable {
         return true;
     }
 
-    private void setSessionId(double sessionId) {
+    private void setSessionId(Double sessionId) {
         this.sessionId = sessionId;
         addToArgs("sessionId", sessionId);
     }
 
-    private double getSessionId() {
-        return (double) getArgument("sessionId");
+    private Double getSessionId() {
+        return (Double) getArgument("sessionId");
     }
 
     private double genNonce(SecureRandom random) {

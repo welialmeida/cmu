@@ -10,15 +10,14 @@ public class SignOutResponse extends Response {
     private static final long serialVersionUID = 734457624276534179L;
     private static String Id = "SignOutResponse";
 
-    public SignOutResponse(TreeMap<String, Object> argsMap, double sessionId, PrivateKey privKey,
+    public SignOutResponse(TreeMap<String, Object> argsMap, PrivateKey privKey,
                            PublicKey pubK, SecureRandom random) {
 
-        super(argsMap, sessionId, privKey, pubK, random);
+        super(argsMap, privKey, pubK, random);
     }
 
     @Override
     public void handle(ResponseHandler ch) {
-
         ch.handle(this);
     }
 
