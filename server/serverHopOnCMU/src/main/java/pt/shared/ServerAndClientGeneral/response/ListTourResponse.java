@@ -3,6 +3,9 @@ package pt.shared.ServerAndClientGeneral.response;
 import java.security.PrivateKey;
 import java.security.PublicKey;
 import java.security.SecureRandom;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 import java.util.TreeMap;
 
 public class ListTourResponse extends Response {
@@ -20,6 +23,20 @@ public class ListTourResponse extends Response {
     public void handle(ResponseHandler ch) {
         ch.handle(this);
     }
+
+    @Override
+    public String toString() {
+        String locs = "";
+        for (String loc : getLocations()) {
+            locs += loc + "\n";
+        }
+        return locs;
+    }
+
+    public List<String> getLocations() {
+        return new ArrayList<String>((Collection<String>) getArgument("locations"));
+    }
+
 
     @Override
     public String getId() {

@@ -83,16 +83,18 @@ public class ClientApplication {
                         break;
                     case 4:
                         System.out.println("list tour locations");
-                        System.out.println("Usage:<source key-filename>");
+                        System.out.println("Usage:<username>space<busTicketCode>space<publicKey>");
                         keyboard = new Scanner(System.in);
                         line = keyboard.nextLine();
-                        //listTourLocations(line);
+                        data = line.split(" ");
+                        listTourLocations(data[0], data[1], data[2]);
                         break;
                     case 5:
                         System.out.println("download quiz locations");
-                        System.out.println("Usage:<source key-filename>");
+                        System.out.println("Usage:<username>space<busTicketCode>space<publicKey>");
                         keyboard = new Scanner(System.in);
                         line = keyboard.nextLine();
+                        data = line.split(" ");
                         //downloadQuizLocations(line);
                         break;
                     case 6:
@@ -143,6 +145,8 @@ public class ClientApplication {
         }
     }
 
+
+
     private static void checkServer() {
         if (client == null) {
             System.out.println("Server is not available");
@@ -168,6 +172,11 @@ public class ClientApplication {
     public static void signOut(String datum, String datum1, String datum2) {
         checkServer();
         client.signOut(datum, datum1, datum2);
+    }
+
+    private void listTourLocations(String datum, String datum1, String datum2) {
+        checkServer();
+        client.listTourLocations(datum, datum1, datum2);
     }
 
     public static void RSAKeyGenerator(String path) {

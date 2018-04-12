@@ -71,7 +71,7 @@ public abstract class Proto implements Serializable {
         addToArgs("sessionId", sessionId);
     }
 
-    private Double getSessionId() {
+    public Double getSessionId() {
         return (Double) getArgument("sessionId");
     }
 

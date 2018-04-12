@@ -8,10 +8,7 @@ import java.net.Socket;
 import java.security.GeneralSecurityException;
 
 import pt.server.ulisboa.tecnico.cmu.server.ServerExceptions.InvalidSignupException;
-import pt.server.ulisboa.tecnico.cmu.server.handlers.HelloCommandHandler;
-import pt.server.ulisboa.tecnico.cmu.server.handlers.SignInCommandHandler;
-import pt.server.ulisboa.tecnico.cmu.server.handlers.SignOutCommandHandler;
-import pt.server.ulisboa.tecnico.cmu.server.handlers.SignUpCommandHandler;
+import pt.server.ulisboa.tecnico.cmu.server.handlers.*;
 import pt.shared.ServerAndClientGeneral.Exceptions.MethodNotFoundException;
 import pt.shared.ServerAndClientGeneral.command.CommandHandler;
 import pt.shared.ServerAndClientGeneral.response.Response;
@@ -92,10 +89,9 @@ public class Server {
                 return new SignInCommandHandler();
             case "SignOutCommand":
                 return new SignOutCommandHandler();
-                /*
             case "ListTourLocationsCommand":
-                return new ListTourResponse();
-
+                return new ListTourCommandHandler();
+            /*
             case "DownloadQuizQuestionsCommand":
                 return new DownloadQuizQuestionsResponse();
 

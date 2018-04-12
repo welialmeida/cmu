@@ -15,10 +15,8 @@ import pt.shared.ServerAndClientGeneral.util.SignatureHandling;
 
 import java.io.IOException;
 import java.security.*;
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
-import java.util.TreeMap;
+import java.text.Collator;
+import java.util.*;
 
 public abstract class CommandHandlerImpl implements CommandHandler {
 
@@ -28,6 +26,16 @@ public abstract class CommandHandlerImpl implements CommandHandler {
         }
     });
 
+    private static Collection<String> tourLocations = new TreeSet<String>(Collator.getInstance()) {
+        {
+            add("Lisbon");
+            add("Sao Paulo");
+            add("Porto");
+            add("New York");
+            add("Algarve");
+            add("Bruxelas");
+        }
+    };
     private static List<Account> cacheAccountList = new ArrayList<>(); // cache
     private static PrivateKey privKey;
     private static PublicKey pubKey;
@@ -145,6 +153,14 @@ public abstract class CommandHandlerImpl implements CommandHandler {
 
     public static SecureRandom getRandom() {
         return random;
+    }
+
+    public static Collection<String> getTourLocations() {
+        return tourLocations;
+    }
+
+    public static void setTourLocations(Collection<String> tourLocations) {
+        CommandHandlerImpl.tourLocations = tourLocations;
     }
 
     public Account getAndCheckAccount(Command cmd, String username, String busTicketCode)
