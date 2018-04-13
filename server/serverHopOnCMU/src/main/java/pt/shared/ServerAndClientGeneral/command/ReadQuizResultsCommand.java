@@ -7,10 +7,6 @@ import java.security.PublicKey;
 import java.security.SecureRandom;
 import java.util.TreeMap;
 
-/**
- * Created by daniel on 01-04-2018.
- */
-
 public class ReadQuizResultsCommand extends Command {
 
     private static final long serialVersionUID = -8807331723807741905L;

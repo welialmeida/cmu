@@ -15,7 +15,6 @@ import pt.shared.ServerAndClientGeneral.util.SignatureHandling;
 
 import java.io.IOException;
 import java.security.*;
-import java.text.Collator;
 import java.util.*;
 
 public abstract class CommandHandlerImpl implements CommandHandler {
@@ -26,16 +25,84 @@ public abstract class CommandHandlerImpl implements CommandHandler {
         }
     });
 
-    private static Collection<String> tourLocations = new TreeSet<String>(Collator.getInstance()) {
+    private static TreeMap<String, TreeMap<String, List<String>>> tourLocations =
+            new TreeMap<String, TreeMap<String,List<String>>>() {
         {
-            add("Lisbon");
-            add("Sao Paulo");
-            add("Porto");
-            add("New York");
-            add("Algarve");
-            add("Bruxelas");
+            put("Lisbon",new TreeMap<String, List<String>>() {
+                {
+                    put("A1", new ArrayList<String>() {
+                        {
+                            add("opcao1");
+                            add("opcao2");
+                            add("opcao3");
+                            add("opcao4");
+                        }
+                    });
+                    put("B1", new ArrayList<String>() {
+                        {
+                            add("opcao1");
+                            add("opcao2");
+                            add("opcao3");
+                            add("opcao4");
+                        }
+                    });
+                    put("C1", new ArrayList<String>() {
+                        {
+                            add("opcao1");
+                            add("opcao2");
+                            add("opcao3");
+                            add("opcao4");
+                        }
+                    });
+                    put("D1", new ArrayList<String>() {
+                        {
+                            add("opcao1");
+                            add("opcao2");
+                            add("opcao3");
+                            add("opcao4");
+                        }
+                    });
+                }
+            });
+            put("Porto",new TreeMap<String, List<String>>() {
+                {
+                    put("A2", new ArrayList<String>() {
+                        {
+                            add("opcao1");
+                            add("opcao2");
+                            add("opcao3");
+                            add("opcao4");
+                        }
+                    });
+                    put("B2", new ArrayList<String>() {
+                        {
+                            add("opcao1");
+                            add("opcao2");
+                            add("opcao3");
+                            add("opcao4");
+                        }
+                    });
+                    put("C2", new ArrayList<String>() {
+                        {
+                            add("opcao1");
+                            add("opcao2");
+                            add("opcao3");
+                            add("opcao4");
+                        }
+                    });
+                    put("D2", new ArrayList<String>() {
+                        {
+                            add("opcao1");
+                            add("opcao2");
+                            add("opcao3");
+                            add("opcao4");
+                        }
+                    });
+                }
+            });
         }
     };
+
     private static List<Account> cacheAccountList = new ArrayList<>(); // cache
     private static PrivateKey privKey;
     private static PublicKey pubKey;
@@ -156,11 +223,33 @@ public abstract class CommandHandlerImpl implements CommandHandler {
     }
 
     public static Collection<String> getTourLocations() {
-        return tourLocations;
+        return tourLocations.keySet();
     }
 
-    public static void setTourLocations(Collection<String> tourLocations) {
-        CommandHandlerImpl.tourLocations = tourLocations;
+    public List<String> getQuestions(String location, String ssid)
+            throws SsidNotFoundException, LocationNotFoundException {
+
+        if(tourLocations.containsKey(location)) {
+            TreeMap<String, List<String>> ssidQuestions = tourLocations.get(location);
+            if(ssidQuestions.containsKey(ssid)) {
+                return ssidQuestions.get(ssid);
+            } else {
+                throw new SsidNotFoundException("ssid not found");
+            }
+        }
+        throw new LocationNotFoundException("location not  found");
+    }
+
+    public String findLocationBySsid(String ssid)
+            throws SsidNotFoundException{
+
+        for(String key : tourLocations.keySet()) {
+            TreeMap<String, List<String>> ssids = tourLocations.get(key);
+            if(ssids.containsKey(ssid)) {
+                return key;
+            }
+        }
+        throw new SsidNotFoundException("ssid not found");
     }
 
     public Account getAndCheckAccount(Command cmd, String username, String busTicketCode)

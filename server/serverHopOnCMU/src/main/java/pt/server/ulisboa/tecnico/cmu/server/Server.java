@@ -91,10 +91,9 @@ public class Server {
                 return new SignOutCommandHandler();
             case "ListTourLocationsCommand":
                 return new ListTourCommandHandler();
-            /*
             case "DownloadQuizQuestionsCommand":
-                return new DownloadQuizQuestionsResponse();
-
+                return new DownloadQuizQuestionsResultsHandler();
+            /*
             case "PostQuizAnswersForMonumentCommand":
                 return new PostQuizAnswersForOneMonumentResponse();
 

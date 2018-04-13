@@ -1,5 +1,6 @@
 package pt.shared.ServerAndClientGeneral.command;
 
+import pt.server.ulisboa.tecnico.cmu.server.handlers.SignInCommandHandler;
 import pt.shared.ServerAndClientGeneral.response.Response;
 
 import java.security.PrivateKey;

@@ -7,10 +7,6 @@ import java.security.PublicKey;
 import java.security.SecureRandom;
 import java.util.TreeMap;
 
-/**
- * Created by daniel on 01-04-2018.
- */
-
 public class DownloadQuizQuestionsCommand extends Command {
 
     private static final long serialVersionUID = -8807331723807741905L;
@@ -25,6 +21,18 @@ public class DownloadQuizQuestionsCommand extends Command {
                                         PublicKey pubK, SecureRandom random) {
 
         super(argsMap, sessionId, privKey, pubK, random);
+    }
+
+    public String getUsername() {
+        return ((TreeMap<String, String>) getArgument("return")).get("username");
+    }
+
+    public String getBusTicket() {
+        return ((TreeMap<String, String>) getArgument("return")).get("busTicketCode");
+    }
+
+    public String getSsid() {
+        return ((TreeMap<String, String>) getArgument("return")).get("ssid");
     }
 
     @Override
