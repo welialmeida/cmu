@@ -203,6 +203,35 @@ public class Client {
         return;
     }
 
+    public void downloadQuizQuestions(String username, String busTicketCode, String pubKFilename, String ssid) {
+        setKeysWithFileName(pubKFilename);
+
+        TreeMap<String, Object> argsMap = new TreeMap<>();
+        TreeMap<String, String> ret = new TreeMap<>();
+        ret.put("username", username);
+        ret.put("busTicketCode", busTicketCode);
+        ret.put("ssid", ssid);
+        argsMap.put("return", ret);
+        Command cmd;
+
+        Double sessionId = ResponseHandlerImpl.getSessionId();
+        if(sessionId == null) {
+            cmd = new DownloadQuizQuestionsCommand(argsMap, null, this.privKey, this.pubK, this.random);
+        } else {
+            cmd = new DownloadQuizQuestionsCommand(argsMap, sessionId, this.privKey, this.pubK, this.random);
+        }
+
+        Response rsp = null;
+        try {
+            rsp = start(cmd);
+            tries = 0;
+        } catch (FailedToConnectToServer e) {
+            e.printStackTrace();
+        }
+        rsp.handle(new DownloadQuizQuestionsClientHandler());
+        return;
+    }
+
     private void setKeysWithFileName(String fileName) {
 
         this.pubK = null;
@@ -220,6 +249,4 @@ public class Client {
             return;
         }
     }
-
-
 }

@@ -46,7 +46,7 @@ public class ClientApplication {
             System.out.println("2-signUp");
             System.out.println("3-signIn");
             System.out.println("4-List tour locations");
-            System.out.println("5-Download quiz locations(at the corresponding monument)");
+            System.out.println("5-Download quiz questions(at the corresponding monument)");
             System.out.println("6-Post quiz answers for one monument");
             System.out.println("7-Read quiz results (number of correct answers and ranking");
             System.out.println("8-ping server");
@@ -90,18 +90,19 @@ public class ClientApplication {
                         listTourLocations(data[0], data[1], data[2]);
                         break;
                     case 5:
-                        System.out.println("download quiz locations");
-                        System.out.println("Usage:<username>space<busTicketCode>space<publicKey>");
+                        System.out.println("download quiz questions");
+                        System.out.println("Usage:<username>space<busTicketCode>space<publicKey>space<ssid>");
                         keyboard = new Scanner(System.in);
                         line = keyboard.nextLine();
                         data = line.split(" ");
-                        //downloadQuizLocations(line);
+                        downloadQuizQuestions(data[0], data[1], data[2], data[3]);
                         break;
                     case 6:
                         System.out.println("post answers");
                         System.out.println("Usage:<target_to_audit key-filename>");
                         keyboard = new Scanner(System.in);
                         line = keyboard.nextLine();
+                        data = line.split(" ");
                         //postAnswers(line);
                         break;
                     case 7:
@@ -109,6 +110,7 @@ public class ClientApplication {
                         System.out.println("Usage:<source key-filename>");
                         keyboard = new Scanner(System.in);
                         line = keyboard.nextLine();
+                        data = line.split(" ");
                         //readResults(line);
                         break;
                     case 8:
@@ -145,8 +147,6 @@ public class ClientApplication {
         }
     }
 
-
-
     private static void checkServer() {
         if (client == null) {
             System.out.println("Server is not available");
@@ -177,6 +177,11 @@ public class ClientApplication {
     private void listTourLocations(String datum, String datum1, String datum2) {
         checkServer();
         client.listTourLocations(datum, datum1, datum2);
+    }
+
+    private void downloadQuizQuestions(String datum, String datum1, String datum2, String datum3) {
+        checkServer();
+        client.downloadQuizQuestions(datum, datum1, datum2, datum3);
     }
 
     public static void RSAKeyGenerator(String path) {
